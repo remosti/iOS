@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MainControl-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="MainControl" id="BYZ-38-t0r" customClass="ViewController" customModule="Music_Cover_Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,88 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Js-kJ-Zbr">
+                                <rect key="frame" x="90" y="200" width="195" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.65105408430099487" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="195" id="odi-PK-BBC"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="195" id="sNX-XG-lzh"/>
+                                </constraints>
+                                <color key="tintColor" red="0.9574703574180603" green="0.99982327222824097" blue="0.97409063577651978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Spiel"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHs-tk-msI">
+                                <rect key="frame" x="90" y="253" width="195" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.65105408430099487" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="195" id="5me-f5-sE2"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="195" id="z2I-8a-f8d"/>
+                                </constraints>
+                                <color key="tintColor" red="0.9574703574180603" green="0.99982327222824097" blue="0.97409063577651978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Rangliste"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAk-hS-d2C">
+                                <rect key="frame" x="90" y="306" width="195" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.65105408430099487" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="195" id="N4u-a7-De0"/>
+                                    <constraint firstAttribute="width" constant="195" id="sNk-ez-2qI"/>
+                                </constraints>
+                                <color key="tintColor" red="0.9574703574180603" green="0.99982327222824097" blue="0.97409063577651978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Schweizer Charts"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rHs-tk-msI" firstAttribute="top" secondItem="5Js-kJ-Zbr" secondAttribute="bottom" constant="23" id="0qG-Qv-hkw"/>
+                            <constraint firstItem="rHs-tk-msI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3Ir-cE-Xry"/>
+                            <constraint firstItem="lAk-hS-d2C" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Aac-e8-4lK"/>
+                            <constraint firstItem="lAk-hS-d2C" firstAttribute="top" secondItem="rHs-tk-msI" secondAttribute="bottom" constant="23" id="I7O-yJ-WTV"/>
+                            <constraint firstItem="5Js-kJ-Zbr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="180" id="mRD-kj-Chb"/>
+                            <constraint firstItem="5Js-kJ-Zbr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zb0-y4-C4R"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-562.39999999999998" y="142.57871064467767"/>
+        </scene>
+        <!--Leaderboard-->
+        <scene sceneID="yOJ-Xb-PxH">
+            <objects>
+                <viewController title="Leaderboard" id="XOk-7p-D3l" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LAJ-sg-NZr"/>
+                        <viewControllerLayoutGuide type="bottom" id="a28-sF-hQk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RnY-O2-eZx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X3Q-KT-qHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-562" y="859"/>
+        </scene>
+        <!--Gameplay-->
+        <scene sceneID="y53-P9-kHz">
+            <objects>
+                <viewController title="Gameplay" id="bQz-uZ-73Z" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LFK-Pu-Vt2"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q18-y5-698"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s1g-XT-owP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EiC-6o-Tnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="202" y="143"/>
         </scene>
     </scenes>
 </document>
