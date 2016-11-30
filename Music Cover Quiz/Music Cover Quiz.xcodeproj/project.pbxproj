@@ -13,6 +13,9 @@
 		842A679F1DECB1130036DAB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842A679E1DECB1130036DAB8 /* Assets.xcassets */; };
 		842A67A21DECB1130036DAB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842A67A01DECB1130036DAB8 /* LaunchScreen.storyboard */; };
 		849D903B1DEE373D008274C7 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D903A1DEE373D008274C7 /* LaunchScreenViewController.swift */; };
+		A74DAAC01DEF66E700620C99 /* CSwiftV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74DAABD1DEF66E700620C99 /* CSwiftV.swift */; };
+		A74DAAC11DEF66E700620C99 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A74DAABE1DEF66E700620C99 /* LICENSE */; };
+		A74DAAC21DEF66E700620C99 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A74DAABF1DEF66E700620C99 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		842A67A11DECB1130036DAB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		842A67A31DECB1130036DAB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		849D903A1DEE373D008274C7 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		A74DAABD1DEF66E700620C99 /* CSwiftV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSwiftV.swift; sourceTree = "<group>"; };
+		A74DAABE1DEF66E700620C99 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		A74DAABF1DEF66E700620C99 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +46,7 @@
 		842A678B1DECB1130036DAB8 = {
 			isa = PBXGroup;
 			children = (
+				A74DAAC31DEF66F500620C99 /* CSwiftV */,
 				842A67961DECB1130036DAB8 /* Music Cover Quiz */,
 				842A67951DECB1130036DAB8 /* Products */,
 			);
@@ -65,6 +72,16 @@
 				849D903A1DEE373D008274C7 /* LaunchScreenViewController.swift */,
 			);
 			path = "Music Cover Quiz";
+			sourceTree = "<group>";
+		};
+		A74DAAC31DEF66F500620C99 /* CSwiftV */ = {
+			isa = PBXGroup;
+			children = (
+				A74DAABD1DEF66E700620C99 /* CSwiftV.swift */,
+				A74DAABE1DEF66E700620C99 /* LICENSE */,
+				A74DAABF1DEF66E700620C99 /* README.md */,
+			);
+			name = CSwiftV;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +145,7 @@
 			files = (
 				842A67A21DECB1130036DAB8 /* LaunchScreen.storyboard in Resources */,
 				842A679F1DECB1130036DAB8 /* Assets.xcassets in Resources */,
+				A74DAAC11DEF66E700620C99 /* LICENSE in Resources */,
 				842A679D1DECB1130036DAB8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +159,8 @@
 			files = (
 				842A679A1DECB1130036DAB8 /* ViewController.swift in Sources */,
 				849D903B1DEE373D008274C7 /* LaunchScreenViewController.swift in Sources */,
+				A74DAAC21DEF66E700620C99 /* README.md in Sources */,
+				A74DAAC01DEF66E700620C99 /* CSwiftV.swift in Sources */,
 				842A67981DECB1130036DAB8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
