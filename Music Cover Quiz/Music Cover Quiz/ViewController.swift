@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "LaunchViewBackground")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         
         playGameButton.layer.cornerRadius = cornerRadius
         showLeaderboardButton.layer.cornerRadius = cornerRadius
