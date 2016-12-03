@@ -18,7 +18,7 @@
 		A74DAAC21DEF66E700620C99 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A74DAABF1DEF66E700620C99 /* README.md */; };
 		A74DAAC71DEF677D00620C99 /* MusicChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74DAAC61DEF677D00620C99 /* MusicChartsLoader.swift */; };
 		A7C823271DF0B8640038A3FC /* QuizData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C823261DF0B8640038A3FC /* QuizData.swift */; };
-		A7C823291DF0B9AB0038A3FC /* GamePlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C823281DF0B9AB0038A3FC /* GamePlayViewController.swift */; };
+		A7C823291DF0B9AB0038A3FC /* GameplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C823281DF0B9AB0038A3FC /* GameplayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		A74DAABF1DEF66E700620C99 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A74DAAC61DEF677D00620C99 /* MusicChartsLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicChartsLoader.swift; sourceTree = "<group>"; };
 		A7C823261DF0B8640038A3FC /* QuizData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizData.swift; sourceTree = "<group>"; };
-		A7C823281DF0B9AB0038A3FC /* GamePlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePlayViewController.swift; sourceTree = "<group>"; };
+		A7C823281DF0B9AB0038A3FC /* GameplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameplayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,7 @@
 				842A67A31DECB1130036DAB8 /* Info.plist */,
 				849D903A1DEE373D008274C7 /* LaunchScreenViewController.swift */,
 				A7C823261DF0B8640038A3FC /* QuizData.swift */,
-				A7C823281DF0B9AB0038A3FC /* GamePlayViewController.swift */,
+				A7C823281DF0B9AB0038A3FC /* GameplayViewController.swift */,
 			);
 			path = "Music Cover Quiz";
 			sourceTree = "<group>";
@@ -172,7 +172,7 @@
 				A74DAAC01DEF66E700620C99 /* CSwiftV.swift in Sources */,
 				842A67981DECB1130036DAB8 /* AppDelegate.swift in Sources */,
 				A74DAAC71DEF677D00620C99 /* MusicChartsLoader.swift in Sources */,
-				A7C823291DF0B9AB0038A3FC /* GamePlayViewController.swift in Sources */,
+				A7C823291DF0B9AB0038A3FC /* GameplayViewController.swift in Sources */,
 				A7C823271DF0B8640038A3FC /* QuizData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

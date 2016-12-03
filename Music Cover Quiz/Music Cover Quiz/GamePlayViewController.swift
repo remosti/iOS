@@ -51,10 +51,10 @@ class GamePlayViewController: UIViewController {
     
     func randomCovers () {
         
-        if let imageUrl = quizData?[0].coverImage, let band = quizData?[0].band, let song = quizData?[0].song {
-            if let url = NSURL(string: imageUrl), let data = NSData(contentsOf: url as URL) {
-                coverImage.image = UIImage(data: data as Data)
-                button1.setTitle ("\(band) - \(song)", for: UIControlState.normal)
+        if let data = quizData?[0] {
+            if let image = data.getLocalCoverImage() {
+                coverImage.image = image
+                button1.setTitle ("\(data.band) - \(data.song)", for: UIControlState.normal)
             }
         }
  /*
