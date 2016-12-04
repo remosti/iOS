@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -49,6 +49,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.9574703574180603" green="0.99982327222824097" blue="0.97409063577651978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Rangliste"/>
+                                <connections>
+                                    <segue destination="XOk-7p-D3l" kind="show" id="wSX-ob-XmS"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAk-hS-d2C">
                                 <rect key="frame" x="90" y="314" width="195" height="34"/>
@@ -70,7 +73,7 @@
                                 <size key="shadowOffset" width="1" height="-2"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valentin Schuler / Remo Stirnimann" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mD-z5-CyH">
-                                <rect key="frame" x="53" y="638" width="269" height="20.5"/>
+                                <rect key="frame" x="53" y="638" width="269" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="269" id="9UE-SY-FbX"/>
                                 </constraints>
@@ -106,7 +109,7 @@
         <!--Leaderboard-->
         <scene sceneID="yOJ-Xb-PxH">
             <objects>
-                <viewController title="Leaderboard" id="XOk-7p-D3l" sceneMemberID="viewController">
+                <viewController title="Leaderboard" id="XOk-7p-D3l" customClass="LeaderboardViewController" customModule="Music_Cover_Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LAJ-sg-NZr"/>
                         <viewControllerLayoutGuide type="bottom" id="a28-sF-hQk"/>
@@ -138,7 +141,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PRe-1E-7Z6" id="tbN-Px-uia">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rang" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBb-by-moC">
@@ -183,6 +186,14 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZh-hS-Utc">
+                                <rect key="frame" x="2" y="46" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="back"/>
+                                <connections>
+                                    <segue destination="6MB-PW-NXv" kind="unwind" unwindAction="unwindBackToMainViewWithSegue:" id="rns-DL-UA8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -197,10 +208,15 @@
                             <constraint firstItem="FGE-4g-270" firstAttribute="leading" secondItem="RnY-O2-eZx" secondAttribute="leading" id="ilk-1C-50J"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="leaderBoardTable" destination="Jw5-Xe-gw7" id="arB-IM-G6q"/>
+                        <segue destination="6MB-PW-NXv" kind="unwind" unwindAction="unwindBackToMainViewWithSegue:" id="vq2-PH-0pA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3Q-KT-qHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6MB-PW-NXv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-562.39999999999998" y="858.62068965517244"/>
+            <point key="canvasLocation" x="-562" y="830"/>
         </scene>
         <!--GameplayViewController-->
         <scene sceneID="y53-P9-kHz">
