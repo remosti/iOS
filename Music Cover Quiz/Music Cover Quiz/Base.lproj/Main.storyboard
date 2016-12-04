@@ -138,7 +138,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PRe-1E-7Z6" id="tbN-Px-uia">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rang" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBb-by-moC">
@@ -242,7 +242,6 @@
                                     <constraint firstAttribute="width" constant="240" id="Eb0-EG-VFK"/>
                                     <constraint firstAttribute="height" constant="34" id="djR-yw-hUi"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.95747035739999997" green="0.9998232722" blue="0.97409063579999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button 1"/>
                                 <state key="highlighted" image="PlayGameIcon"/>
@@ -294,22 +293,14 @@
                                     <constraint firstAttribute="height" constant="249" id="ZEc-EW-Iug"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuestionLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p36-F2-2Ro">
-                                <rect key="frame" x="133" y="74" width="111" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pxp-I5-wCt" firstAttribute="top" secondItem="Y2p-Bs-nz8" secondAttribute="bottom" id="14m-7E-6Mg"/>
                             <constraint firstItem="Y2p-Bs-nz8" firstAttribute="leading" secondItem="s1g-XT-owP" secondAttribute="leading" id="4A9-At-t6Z"/>
                             <constraint firstItem="CyN-aX-w5v" firstAttribute="top" secondItem="PJS-MF-qpw" secondAttribute="bottom" constant="24" id="6gt-wW-XFn"/>
-                            <constraint firstItem="p36-F2-2Ro" firstAttribute="centerX" secondItem="s1g-XT-owP" secondAttribute="centerX" constant="1" id="AMx-Fc-rmm"/>
                             <constraint firstItem="4CI-UL-MgA" firstAttribute="top" secondItem="CyN-aX-w5v" secondAttribute="bottom" constant="21" id="Drj-fJ-gea"/>
                             <constraint firstItem="PJS-MF-qpw" firstAttribute="top" secondItem="Y2p-Bs-nz8" secondAttribute="bottom" constant="360" id="EnV-0Z-mSo"/>
-                            <constraint firstItem="p36-F2-2Ro" firstAttribute="top" secondItem="Y2p-Bs-nz8" secondAttribute="bottom" constant="30" id="MBj-Ds-6JK"/>
                             <constraint firstItem="9e2-RB-ypu" firstAttribute="top" secondItem="Y2p-Bs-nz8" secondAttribute="bottom" constant="59" id="R0G-nU-ciD"/>
                             <constraint firstItem="9e2-RB-ypu" firstAttribute="centerX" secondItem="s1g-XT-owP" secondAttribute="centerX" id="auv-YT-fxp"/>
                             <constraint firstItem="4LU-Ut-VMw" firstAttribute="top" secondItem="4CI-UL-MgA" secondAttribute="bottom" constant="30" id="ayh-E9-3Cu"/>
@@ -323,14 +314,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="QuestionLabel" destination="p36-F2-2Ro" id="E0E-8t-by7"/>
                         <outlet property="button1" destination="PJS-MF-qpw" id="0xy-LC-0cB"/>
                         <outlet property="button2" destination="CyN-aX-w5v" id="Rgc-3J-h2L"/>
                         <outlet property="button3" destination="4CI-UL-MgA" id="MO7-ei-Xid"/>
                         <outlet property="coverImage" destination="9e2-RB-ypu" id="7kB-6W-7nd"/>
                         <outlet property="loadedLabel" destination="4LU-Ut-VMw" id="iwA-dY-p8c"/>
                         <outlet property="nextButton" destination="v34-xj-xMH" id="nAA-BQ-BMn"/>
-                        <outlet property="questionLabel" destination="p36-F2-2Ro" id="a2z-O8-dy1"/>
                         <segue destination="Jrw-hF-gfg" kind="unwind" unwindAction="unwindBackToMainViewWithSegue:" id="gZd-Mc-bLS"/>
                     </connections>
                 </viewController>

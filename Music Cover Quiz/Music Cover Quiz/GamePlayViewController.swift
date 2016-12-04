@@ -10,8 +10,8 @@ import UIKit
 
 class GamePlayViewController: UIViewController {
     
-    var CorrectAnswer = String()
-    var randomQuizData:[Int] = [1, 2, 3, 4, 5]
+    var correctAnswer = String()
+    var playedQuizData:[Int] = [1, 2, 3, 4, 5]
     
     var quizData: [QuizDataItem]?
     
@@ -28,7 +28,7 @@ class GamePlayViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         
-        let cornerRadius : CGFloat = 5
+        let cornerRadius : CGFloat = 8
         button1.layer.cornerRadius = cornerRadius
         button2.layer.cornerRadius = cornerRadius
         button3.layer.cornerRadius = cornerRadius
@@ -46,10 +46,10 @@ class GamePlayViewController: UIViewController {
         }
         
         hideNextButton()
-        randomCovers()
+        setupGame()
     }
     
-    func randomCovers () {
+    func setupGame () {
         
         if let data = quizData?[0] {
             if let image = data.getLocalCoverImage() {
@@ -57,58 +57,28 @@ class GamePlayViewController: UIViewController {
                 button1.setTitle ("\(data.band) - \(data.song)", for: UIControlState.normal)
             }
         }
- /*
         
-        let randomIndex = Int(arc4random_uniform(UInt32(randomQuizData.count)))
+        let randomIndex = Int(arc4random_uniform(UInt32((quizData?.count)!-1)))
+        while playedQuizData.contains(randomIndex) { }
         
-        if randomQuizData.count > 0 {
-            
-            switch (randomQuizData[randomIndex]) {
-                
-            case 1:
-                questionLabel.text = "Hola familia, Cual es mi nombre? "
-                button1.setTitle ("Cesar", for: UIControlState.normal)
-                button2.setTitle ("Karlos", for: UIControlState.normal)
-                button3.setTitle ("William", for: UIControlState.normal)
-                CorrectAnswer = "2"
-                break
-                
-            case 2:
-                questionLabel.text = "Hola famili, cual es mi apellido? "
-                button1.setTitle ("Perez", for: UIControlState.normal)
-                button2.setTitle ("Carvajal", for: UIControlState.normal)
-                button3.setTitle ("Garcia", for: UIControlState.normal)
-                CorrectAnswer = "1"
-                break
-                
-            case 3:
-                questionLabel.text = "Quien hace la lachona mas rica? "
-                button1.setTitle ("Willy", for: UIControlState.normal)
-                button2.setTitle ("Mario", for: UIControlState.normal)
-                button3.setTitle ("Karlos", for: UIControlState.normal)
-                CorrectAnswer = "1"
-                break
-                
-            case 4:
-                questionLabel.text = "Quien hace las tartas mas lindas"
-                button1.setTitle ("Jili", for: UIControlState.normal)
-                button2.setTitle ("Carvajal", for: UIControlState.normal)
-                button3.setTitle ("Garcia", for: UIControlState.normal)
-                CorrectAnswer = "4"
-                break
-                
-            default:
-                break
-                
-            }
-            randomQuizData.remove(at: randomIndex)
-        }
- */
+        playedQuizData.append(randomIndex)
+        
+        let random = Int(arc4random_uniform(UInt32((quizData?.count)!-1)))
+
+        
+        button1.setTitle (quizData?[random].song, for: UIControlState.normal)
+        button2.setTitle ("Karlos", for: UIControlState.normal)
+        button3.setTitle ("William", for: UIControlState.normal)
+        correctAnswer = "2"
+    
+        playedQuizData.remove(at: randomIndex)
     }
+    
+    func setupNextData() {}
     
     @IBAction func button1Pressed(_ sender: UIButton) {
         showNextButton()
-        if (CorrectAnswer == "1") {
+        if (correctAnswer == "1") {
             labelEnd.text = "Correcto"
         } else{
             labelEnd.text = "Falso"
@@ -117,7 +87,7 @@ class GamePlayViewController: UIViewController {
     
     @IBAction func button2Pressed(_ sender: UIButton) {
         showNextButton()
-        if (CorrectAnswer == "2") {
+        if (correctAnswer == "2") {
             labelEnd.text = "Correcto"
         } else{
             labelEnd.text = "Falso"
@@ -126,7 +96,7 @@ class GamePlayViewController: UIViewController {
     
     @IBAction func button3Pressed(_ sender: UIButton) {
         showNextButton()
-        if (CorrectAnswer == "3") {
+        if (correctAnswer == "3") {
             labelEnd.text = "Correcto"
         } else{
             labelEnd.text = "Falso"
@@ -134,7 +104,7 @@ class GamePlayViewController: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        randomCovers()
+        setupNextData()
     }
     
     func hideNextButton () {
@@ -143,6 +113,17 @@ class GamePlayViewController: UIViewController {
     
     func showNextButton () {
         nextButton.isHidden = false
+    }
+    
+    func shuffleArray(array: [Int]) -> [Int] {
+        var tempArray = array
+        for index in 0...array.count - 1 {
+            let randomNumber = arc4random_uniform(UInt32(array.count - 1))
+            let randomIndex = Int(randomNumber)
+            tempArray[randomIndex] = array[index]
+        }
+        
+        return tempArray
     }
     
    
