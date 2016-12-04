@@ -14,7 +14,7 @@ struct QuizDataItem {
     var band: String
     var song: String
     var coverImage: String
-    var youtubeUrl: String
+    var youtube: String
     
     func getLocalCoverImage() -> UIImage? {
         var image: UIImage?

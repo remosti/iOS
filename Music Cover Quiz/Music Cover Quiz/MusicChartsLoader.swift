@@ -18,7 +18,7 @@ func loadQuizDataFromFile() -> [QuizDataItem]? {
         let content = try String(contentsOf: filePath, encoding: String.Encoding.utf8)
         let csv = CSwiftV(with: content)
         for row in csv.rows {
-            let item = QuizDataItem(ranking: Int(row[1])!, band: row[2], song: row[3], coverImage: row[4], youtubeUrl: row[5])
+            let item = QuizDataItem(ranking: Int(row[1])!, band: row[2], song: row[3], coverImage: row[4], youtube: row[5])
             quizData.append(item)
         }
     } catch {
