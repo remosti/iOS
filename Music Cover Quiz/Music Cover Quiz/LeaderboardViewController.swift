@@ -17,10 +17,12 @@ class LeaderboardViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Aktuelle Rangliste aus dem File-Store laden
         leaderBoard = loadLeaderBoard()
         
         leaderBoard.append(LeaderBoardEntry(name:"Remo",points:32))
         storeLeaderBoard()
+        
         print(leaderBoard.count)
         // Do any additional setup after loading the view.
     }
@@ -32,6 +34,10 @@ class LeaderboardViewController: UIViewController{
     
     
     // MARK: FileHandling
+    
+    /**
+     * Speichern der aktuellen Rangliste ind den File-Store
+     */
     func storeLeaderBoard(){
         let appPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let filePath = appPath.appendingPathComponent(FILENAME)
@@ -41,7 +47,9 @@ class LeaderboardViewController: UIViewController{
         print(appPath.appendingPathComponent(FILENAME) as NSURL	)
         //}
     }
-
+    /**
+     * Lesen der aktuellen Rangliste aus dem File-Store
+     */
     func loadLeaderBoard() -> [LeaderBoardEntry]{
         let appPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let filePath = appPath.appendingPathComponent(FILENAME)
@@ -56,6 +64,10 @@ class LeaderboardViewController: UIViewController{
     }
 }
 
+// MARK: Structur
+/**
+ * Datenstruktur für die Speicherung der Rangliste
+ */
 struct LeaderBoardEntry {
     var name : String
     var points : Int
