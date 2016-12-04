@@ -107,7 +107,7 @@ class GamePlayViewController: UIViewController {
     }
     
     @IBAction func button1Pressed(_ sender: UIButton) {
-        unhideNextButton()
+        showNextButton()
         if (CorrectAnswer == "1") {
             labelEnd.text = "Correcto"
         } else{
@@ -116,7 +116,7 @@ class GamePlayViewController: UIViewController {
     }
     
     @IBAction func button2Pressed(_ sender: UIButton) {
-        unhideNextButton()
+        showNextButton()
         if (CorrectAnswer == "2") {
             labelEnd.text = "Correcto"
         } else{
@@ -125,7 +125,7 @@ class GamePlayViewController: UIViewController {
     }
     
     @IBAction func button3Pressed(_ sender: UIButton) {
-        unhideNextButton()
+        showNextButton()
         if (CorrectAnswer == "3") {
             labelEnd.text = "Correcto"
         } else{
@@ -141,7 +141,7 @@ class GamePlayViewController: UIViewController {
         nextButton.isHidden = true
     }
     
-    func unhideNextButton () {
+    func showNextButton () {
         nextButton.isHidden = false
     }
     

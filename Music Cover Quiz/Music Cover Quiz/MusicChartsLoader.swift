@@ -11,7 +11,6 @@ import UIKit
 
 let googleDocsUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRQPm1zu6hsYP1GPjKaxmSeEGV75EcANvo7ktl963vNt-ozLmWKopkRHMp2EIl-eOKP9UzDUj6v4wmM/pub?gid=0&single=true&output=csv"
 
-
 func loadQuizDataFromFile() -> [QuizDataItem]? {
     var quizData: [QuizDataItem] = [QuizDataItem]()
     let filePath = getDocumentsDirectory().appendingPathComponent("quizdata.data")
@@ -19,7 +18,7 @@ func loadQuizDataFromFile() -> [QuizDataItem]? {
         let content = try String(contentsOf: filePath, encoding: String.Encoding.utf8)
         let csv = CSwiftV(with: content)
         for row in csv.rows {
-            let item = QuizDataItem(band: row[2], song: row[3], coverImage: row[4], youtubeUrl: row[5])
+            let item = QuizDataItem(ranking: Int(row[1])!, band: row[2], song: row[3], coverImage: row[4], youtubeUrl: row[5])
             quizData.append(item)
         }
     } catch {
@@ -27,7 +26,6 @@ func loadQuizDataFromFile() -> [QuizDataItem]? {
     }
     return quizData
 }
-
 
 func updateQuizData() -> Bool {
     let filePath = getDocumentsDirectory().appendingPathComponent("quizdata.data")
@@ -42,9 +40,7 @@ func updateQuizData() -> Bool {
     do {
         if let data = URL(string: googleDocsUrl) {
             let content = try String(contentsOf: data)
-            // write new data
             try content.write(to: filePath, atomically: true, encoding: String.Encoding.utf8)
-            // load cover images
             if let data = loadQuizDataFromFile() {
                 loaded = updateCoverImages(quizData: data)
             }
@@ -61,10 +57,12 @@ func updateCoverImages(quizData: [QuizDataItem]) -> Bool {
         let imageUrl = item.coverImage
         if (imageUrl != "") {
             do {
-                let image = try UIImage(data: NSData(contentsOf: NSURL(string: imageUrl) as! URL) as Data)
+                let imageData = try NSData(contentsOf: NSURL(string: imageUrl) as! URL) as Data
                 let coverImageFilename = (imageUrl as NSString).lastPathComponent
-                let filename = getDocumentsDirectory().appendingPathComponent(coverImageFilename)
-                try UIImageJPEGRepresentation(image!, 100)?.write(to: filename, options: .atomic)
+                let fileUrl = getDocumentsDirectory().appendingPathComponent(coverImageFilename)
+                let image = UIImage(data: imageData as Data)
+                
+                try UIImageJPEGRepresentation(image!, 100)?.write(to: fileUrl, options: .atomic)
             } catch {
                 updated = false
                 print("Could not update image data: \(error)")
