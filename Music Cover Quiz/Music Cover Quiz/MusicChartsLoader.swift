@@ -28,11 +28,10 @@ func loadQuizDataFromFile() -> [QuizDataItem]? {
 }
 
 func updateQuizData() -> Bool {
-    let filePath = getDocumentsDirectory().appendingPathComponent("quizdata.data")
-    var loaded = false
+    let fileUrl = getDocumentsDirectory().appendingPathComponent("quizdata.data")
     
     do {
-        try FileManager.default.removeItem(at: filePath)
+        try FileManager.default.removeItem(at: fileUrl)
     } catch {
         print("No quiz data to delete: \(error)")
     }
@@ -40,15 +39,19 @@ func updateQuizData() -> Bool {
     do {
         if let data = URL(string: googleDocsUrl) {
             let content = try String(contentsOf: data)
-            try content.write(to: filePath, atomically: true, encoding: String.Encoding.utf8)
+            try content.write(to: fileUrl, atomically: true, encoding: String.Encoding.utf8)
             if let data = loadQuizDataFromFile() {
-                loaded = updateCoverImages(quizData: data)
+                return updateCoverImages(quizData: data)
+            } else {
+                return false
             }
+        } else {
+            return false
         }
     } catch {
         print("Could not update quiz data: \(error)")
+        return false
     }
-    return loaded
 }
 
 func updateCoverImages(quizData: [QuizDataItem]) -> Bool {
@@ -57,12 +60,13 @@ func updateCoverImages(quizData: [QuizDataItem]) -> Bool {
         let imageUrl = item.coverImage
         if (imageUrl != "") {
             do {
-                let imageData = try NSData(contentsOf: NSURL(string: imageUrl) as! URL) as Data
-                let coverImageFilename = (imageUrl as NSString).lastPathComponent
-                let fileUrl = getDocumentsDirectory().appendingPathComponent(coverImageFilename)
-                let image = UIImage(data: imageData as Data)
-                
-                try UIImageJPEGRepresentation(image!, 100)?.write(to: fileUrl, options: .atomic)
+                let fileName = (imageUrl as NSString).lastPathComponent
+                let fileUrl = getDocumentsDirectory().appendingPathComponent(fileName)
+                if !FileManager.default.fileExists(atPath: fileUrl.path) {
+                    let imageData = try NSData(contentsOf: NSURL(string: imageUrl) as! URL) as Data
+                    let image = UIImage(data: imageData as Data)
+                    try UIImageJPEGRepresentation(image!, 100)?.write(to: fileUrl, options: .atomic)
+                }
             } catch {
                 updated = false
                 print("Could not update image data: \(error)")

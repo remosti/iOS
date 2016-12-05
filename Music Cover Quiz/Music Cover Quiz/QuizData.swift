@@ -18,8 +18,8 @@ struct QuizDataItem {
     
     func getLocalCoverImage() -> UIImage? {
         var image: UIImage?
-        let coverImageFilename = (coverImage as NSString).lastPathComponent
-        let fileUrl = getDocumentsDirectory().appendingPathComponent(coverImageFilename)
+        let fileName = (coverImage as NSString).lastPathComponent
+        let fileUrl = getDocumentsDirectory().appendingPathComponent(fileName)
 
         if FileManager.default.fileExists(atPath: fileUrl.path) {
             let data = NSData(contentsOf: fileUrl)
