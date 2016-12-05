@@ -76,6 +76,7 @@
 				842A67A31DECB1130036DAB8 /* Info.plist */,
 				A7C823261DF0B8640038A3FC /* QuizData.swift */,
 				A7C823281DF0B9AB0038A3FC /* GamePlayViewController.swift */,
+				845B170F1DF4C4F6002E6426 /* LeaderboardViewController.swift */,
 			);
 			path = "Music Cover Quiz";
 			sourceTree = "<group>";
@@ -166,6 +167,7 @@
 				842A679A1DECB1130036DAB8 /* ViewController.swift in Sources */,
 				A74DAAC21DEF66E700620C99 /* README.md in Sources */,
 				A74DAAC01DEF66E700620C99 /* CSwiftV.swift in Sources */,
+				845B17101DF4C4F6002E6426 /* LeaderboardViewController.swift in Sources */,
 				842A67981DECB1130036DAB8 /* AppDelegate.swift in Sources */,
 				A74DAAC71DEF677D00620C99 /* MusicChartsLoader.swift in Sources */,
 				A7C823291DF0B9AB0038A3FC /* GamePlayViewController.swift in Sources */,
