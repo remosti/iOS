@@ -17,10 +17,11 @@ class LeaderboardViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Aktuelle Rangliste aus dem File-Store laden
+        // Aktuelle Rangliste aus dem File-Store
         leaderBoard = loadLeaderBoard()
         
         leaderBoard.append(LeaderBoardEntry(name:"Remo",points:32))
+        //leaderBoard.append("test")
         storeLeaderBoard()
         
         print(leaderBoard.count)
