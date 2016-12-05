@@ -13,9 +13,9 @@ let googleDocsUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRQPm1zu6hs
 
 func loadQuizDataFromFile() -> [QuizDataItem]? {
     var quizData: [QuizDataItem] = [QuizDataItem]()
-    let filePath = getDocumentsDirectory().appendingPathComponent("quizdata.data")
+    let fileUrl = getDocumentsDirectory().appendingPathComponent("quizdata.data")
     do {
-        let content = try String(contentsOf: filePath, encoding: String.Encoding.utf8)
+        let content = try String(contentsOf: fileUrl, encoding: String.Encoding.utf8)
         let csv = CSwiftV(with: content)
         for row in csv.rows {
             let item = QuizDataItem(ranking: Int(row[1])!, band: row[2], song: row[3], coverImage: row[4], youtube: row[5])
@@ -33,7 +33,7 @@ func updateQuizData() -> Bool {
     do {
         try FileManager.default.removeItem(at: fileUrl)
     } catch {
-        print("No quiz data to delete: \(error)")
+        print("No quiz data deleted: \(error)")
     }
     
     do {
