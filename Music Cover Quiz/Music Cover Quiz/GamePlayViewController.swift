@@ -31,10 +31,6 @@ class GamePlayViewController: UIViewController {
     
     @IBOutlet weak var blurBackground: UIVisualEffectView!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
