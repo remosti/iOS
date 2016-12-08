@@ -26,6 +26,7 @@ class GamePlayViewController: UIViewController {
     
     var animator: UIViewPropertyAnimator?
     var counter = 0.0
+    var scoreTotal = 0
 
     
     @IBOutlet weak var button1: UIButton!
@@ -44,6 +45,7 @@ class GamePlayViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var blurView: UIVisualEffectView!
 
+    @IBOutlet weak var score: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +73,6 @@ class GamePlayViewController: UIViewController {
             self.blurView.effect = nil
         }
 
-        
         hideYoutubeButton()
         hideNextButton()
         showStartButton()
@@ -79,6 +80,8 @@ class GamePlayViewController: UIViewController {
     
     func setupGame() {
         playRound = 1
+        scoreTotal = 0
+        score.text = "0"
         shuffledQuizDataIndex = shuffleArray(array: Array(0...19))
         setupNextData()
         resetUnblur()
@@ -171,10 +174,14 @@ class GamePlayViewController: UIViewController {
     @IBAction func startButtonPressed(_ sender: UIButton) {
         hideStartButton()
         setupGame()
-        Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(self.unblur), userInfo: nil, repeats: true);
+        Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(self.stepUnblur), userInfo: nil, repeats: true);
     }
     
     func evaluate() {
+        
+        Timer.scheduledTimer(timeInterval: 0, target: self, selector: #selector(self.stepUnblur), userInfo: nil, repeats: false);
+        scoreTotal += Int(self.counter)
+        self.score.text = String(scoreTotal)
         if self.playRound == 5 {
             let ac = UIAlertController(title: "Music Cover Quiz", message: "Gratulation", preferredStyle: .alert)
             let okAction: UIAlertAction = UIAlertAction(title: "Danke", style: .default) { action -> Void in
@@ -190,10 +197,15 @@ class GamePlayViewController: UIViewController {
         }
     }
     
-    func unblur() {
+    func stepUnblur() {
         animator?.fractionComplete = CGFloat(counter)
         progressBar.progress = Float(1 - counter)
         counter += 0.005
+    }
+    
+    func unblur() {
+        animator?.fractionComplete = 1.0
+        progressBar.progress = 1.0
     }
     
     func resetUnblur() {

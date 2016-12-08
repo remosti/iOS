@@ -357,17 +357,38 @@
                                 <color key="progressTintColor" red="0.070588235294117646" green="0.57647058823529407" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="trackTintColor" red="1" green="0.93799828119999995" blue="0.96487716680000002" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Punktezahl" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gH-ta-eZg">
+                                <rect key="frame" x="158" y="17" width="85" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="zd1-RY-sCh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.070588235294117646" green="0.57647058823529407" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGi-Uz-rzA">
+                                <rect key="frame" x="251" y="17" width="30" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="F25-tk-ewA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.070588235289999995" green="0.57647058819999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9e2-RB-ypu" firstAttribute="top" secondItem="LFK-Pu-Vt2" secondAttribute="bottom" constant="50" id="0JJ-U7-Crb"/>
                             <constraint firstItem="lgn-xX-df5" firstAttribute="top" secondItem="LFK-Pu-Vt2" secondAttribute="bottom" constant="135" id="1Oz-zx-c3g"/>
+                            <constraint firstItem="2gH-ta-eZg" firstAttribute="top" secondItem="LFK-Pu-Vt2" secondAttribute="bottom" constant="17" id="1YB-gB-x4C"/>
                             <constraint firstItem="NLJ-3w-O6v" firstAttribute="centerX" secondItem="s1g-XT-owP" secondAttribute="centerX" id="5VL-op-ZSN"/>
                             <constraint firstItem="CyN-aX-w5v" firstAttribute="top" secondItem="PJS-MF-qpw" secondAttribute="bottom" constant="20" id="6gt-wW-XFn"/>
                             <constraint firstItem="vfV-rS-d33" firstAttribute="top" secondItem="LFK-Pu-Vt2" secondAttribute="bottom" constant="146" id="7Cj-MC-TKT"/>
                             <constraint firstItem="NLJ-3w-O6v" firstAttribute="bottom" secondItem="9e2-RB-ypu" secondAttribute="bottom" id="D6y-Tv-MCx"/>
                             <constraint firstItem="4CI-UL-MgA" firstAttribute="top" secondItem="CyN-aX-w5v" secondAttribute="bottom" constant="20" id="Drj-fJ-gea"/>
                             <constraint firstItem="oL4-9y-LNg" firstAttribute="top" secondItem="uaP-4z-ouP" secondAttribute="bottom" constant="8" id="Dsi-2p-fFD"/>
+                            <constraint firstItem="VGi-Uz-rzA" firstAttribute="top" secondItem="LFK-Pu-Vt2" secondAttribute="bottom" constant="17" id="J0i-Jq-JUG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VGi-Uz-rzA" secondAttribute="trailing" constant="23" id="J7d-ej-3U3"/>
                             <constraint firstItem="W64-5F-9aD" firstAttribute="trailing" secondItem="9e2-RB-ypu" secondAttribute="trailing" constant="-3" id="JPN-DH-QUY"/>
                             <constraint firstItem="uaP-4z-ouP" firstAttribute="leading" secondItem="s1g-XT-owP" secondAttribute="leadingMargin" id="LIP-hY-8RN"/>
                             <constraint firstItem="oL4-9y-LNg" firstAttribute="centerX" secondItem="s1g-XT-owP" secondAttribute="centerX" id="PW1-2i-Zg4"/>
@@ -380,6 +401,7 @@
                             <constraint firstItem="CyN-aX-w5v" firstAttribute="centerX" secondItem="s1g-XT-owP" secondAttribute="centerX" id="iU7-BV-Bun"/>
                             <constraint firstItem="PJS-MF-qpw" firstAttribute="centerX" secondItem="s1g-XT-owP" secondAttribute="centerX" id="oB2-uD-e1h"/>
                             <constraint firstItem="PJS-MF-qpw" firstAttribute="top" secondItem="9e2-RB-ypu" secondAttribute="bottom" constant="45" id="swh-C6-geJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2gH-ta-eZg" secondAttribute="trailing" constant="61" id="tb2-vg-nWt"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -398,6 +420,7 @@
                         <outlet property="homeButton" destination="uaP-4z-ouP" id="xMJ-xr-KKB"/>
                         <outlet property="nextButton" destination="lgn-xX-df5" id="DKs-0A-8Xd"/>
                         <outlet property="progressBar" destination="tHo-OU-eOY" id="cNI-Hr-elZ"/>
+                        <outlet property="score" destination="VGi-Uz-rzA" id="hyV-fV-kae"/>
                         <outlet property="startButton" destination="vfV-rS-d33" id="tr3-rf-TIE"/>
                         <outlet property="youtubeButton" destination="W64-5F-9aD" id="8eG-9f-CMU"/>
                         <segue destination="Jrw-hF-gfg" kind="unwind" unwindAction="unwindBackToMainViewWithSegue:" id="gZd-Mc-bLS"/>
