@@ -27,6 +27,8 @@ class GamePlayViewController: UIViewController {
     var animator: UIViewPropertyAnimator?
     var counter = 0.0
     var scoreTotal = 0
+    
+    var timer: Timer?
 
     
     @IBOutlet weak var button1: UIButton!
@@ -73,8 +75,7 @@ class GamePlayViewController: UIViewController {
             self.blurView.effect = nil
         }
 
-        hideYoutubeButton()
-        hideNextButton()
+        resetGameplayView()
         showStartButton()
     }
     
@@ -84,7 +85,7 @@ class GamePlayViewController: UIViewController {
         score.text = "0"
         shuffledQuizDataIndex = shuffleArray(array: Array(0...19))
         setupNextData()
-        resetUnblur()
+        resetGameplayView()
     }
     
     func setupNextData() {
@@ -101,34 +102,51 @@ class GamePlayViewController: UIViewController {
         correctAnswer = Int(arc4random_uniform(3));
         coverImage.image = gameData[correctAnswer].getLocalCoverImage()
         youtubeUrl = gameData[correctAnswer].youtube
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(self.stepUnblur), userInfo: nil, repeats: true);
+    }
+    
+    func resetGameplayView() {
+        resetBlur()
+        hideNextButton()
+        hideYoutubeButton()
+        hideStartButton()
+        
+        button1.layer.backgroundColor = self.blue.cgColor
+        button2.layer.backgroundColor = self.blue.cgColor
+        button3.layer.backgroundColor = self.blue.cgColor
+        
+        button1.tintColor = UIColor.white
+        button2.tintColor = UIColor.white
+        button3.tintColor = UIColor.white
+        
+        button1.isEnabled = true
+        button2.isEnabled = true
+        button3.isEnabled = true
     }
    
     @IBAction func button1Pressed(_ sender: UIButton) {
-        showYoutubeButton()
-        evaluate()
+        evaluate(answer: correctAnswer == 0)
         button1.tintColor = UIColor.black
         button1.layer.backgroundColor = (correctAnswer == 0) ? UIColor.green.cgColor : UIColor.red.cgColor
-        
         button2.isEnabled = false
         button3.isEnabled = false
     }
     
     @IBAction func button2Pressed(_ sender: UIButton) {
         showYoutubeButton()
-        evaluate()
+        evaluate(answer: correctAnswer == 1)
         button2.tintColor = UIColor.black
         button2.layer.backgroundColor = (correctAnswer == 1) ? UIColor.green.cgColor : UIColor.red.cgColor
-        
         button1.isEnabled = false
         button3.isEnabled = false
     }
     
     @IBAction func button3Pressed(_ sender: UIButton) {
         showYoutubeButton()
-        evaluate()
+        evaluate(answer: correctAnswer == 2)
         button3.tintColor = UIColor.black
         button3.layer.backgroundColor = (correctAnswer == 2) ? UIColor.green.cgColor : UIColor.red.cgColor
-        
         button1.isEnabled = false
         button2.isEnabled = false
     }
@@ -143,19 +161,8 @@ class GamePlayViewController: UIViewController {
 
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         setupNextData()
-        
-        button1.layer.backgroundColor = self.blue.cgColor
-        button2.layer.backgroundColor = self.blue.cgColor
-        button3.layer.backgroundColor = self.blue.cgColor
-        
-        button1.tintColor = UIColor.white
-        button2.tintColor = UIColor.white
-        button3.tintColor = UIColor.white
-        
-        button1.isEnabled = true
-        button2.isEnabled = true
-        button3.isEnabled = true
-    }
+        resetGameplayView()
+      }
     
 
     @IBAction func homeButtonPressed(_ sender: UIButton) {
@@ -172,16 +179,20 @@ class GamePlayViewController: UIViewController {
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
-        hideStartButton()
         setupGame()
-        Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(self.stepUnblur), userInfo: nil, repeats: true);
     }
     
-    func evaluate() {
+    func evaluate(answer correct: Bool) {
+        timer?.invalidate()
+        timer = nil
+        unblur()
+        showYoutubeButton()
         
-        Timer.scheduledTimer(timeInterval: 0, target: self, selector: #selector(self.stepUnblur), userInfo: nil, repeats: false);
-        scoreTotal += Int(self.counter)
-        self.score.text = String(scoreTotal)
+        if correct {
+            scoreTotal += Int(10 - self.counter * 10)
+            self.score.text = String(scoreTotal)
+        }
+
         if self.playRound == 5 {
             let ac = UIAlertController(title: "Music Cover Quiz", message: "Gratulation", preferredStyle: .alert)
             let okAction: UIAlertAction = UIAlertAction(title: "Danke", style: .default) { action -> Void in
@@ -190,7 +201,6 @@ class GamePlayViewController: UIViewController {
             ac.addAction(okAction)
             self.present(ac, animated: true)
             self.playRound = 0
-            setupGame()
         } else {
             self.playRound += 1
             showNextButton()
@@ -205,10 +215,9 @@ class GamePlayViewController: UIViewController {
     
     func unblur() {
         animator?.fractionComplete = 1.0
-        progressBar.progress = 1.0
     }
     
-    func resetUnblur() {
+    func resetBlur() {
         counter = 0
         animator?.fractionComplete = CGFloat(0)
         progressBar.progress = Float(1 - counter)
