@@ -13,12 +13,12 @@ struct QuizDataItem {
     var ranking: Int
     var band: String
     var song: String
-    var coverImage: String
+    var cover: String
     var youtube: String
     
     func getLocalCoverImage() -> UIImage? {
         var image: UIImage?
-        let fileName = (coverImage as NSString).lastPathComponent
+        let fileName = (cover as NSString).lastPathComponent
         let fileUrl = getDocumentsDirectory().appendingPathComponent(fileName)
 
         if FileManager.default.fileExists(atPath: fileUrl.path) {

@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class GamePlayViewController: UIViewController {
     
-    var correctAnswer = String()
+    var correctAnswer: Int = 0
     var playedQuizData:[Int] = [1, 2, 3, 4, 5]
     
     var quizData: [QuizDataItem]?
+    
+    var youtubeUrl: String?
     
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
@@ -21,30 +25,41 @@ class GamePlayViewController: UIViewController {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var coverImage: UIImageView!
+    @IBOutlet weak var youtubeButton: UIButton!
+    @IBOutlet weak var blurBackground: UIVisualEffectView!
 
-    @IBOutlet weak var labelEnd: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         
-        let cornerRadius : CGFloat = 8
-        button1.layer.cornerRadius = cornerRadius
-        button2.layer.cornerRadius = cornerRadius
-        button3.layer.cornerRadius = cornerRadius
+        coverImage.layer.borderColor = UIColor.white.cgColor
+        coverImage.layer.borderWidth = 1
+
+        button1.layer.cornerRadius = 8
+        button1.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+        button1.titleLabel?.textAlignment = NSTextAlignment.center
+        button1.titleLabel?.numberOfLines = 2
+        
+        button2.layer.cornerRadius = 8
+        button2.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+        button2.titleLabel?.textAlignment = NSTextAlignment.center
+        button2.titleLabel?.numberOfLines = 2
+        
+        button3.layer.cornerRadius = 8
+        button3.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+        button3.titleLabel?.textAlignment = NSTextAlignment.center
+        button3.titleLabel?.numberOfLines = 2
 
         hideNextButton()
         setupGame()
     }
     
     func setupGame () {
+
+        let gameData: [QuizDataItem] = [(quizData?[0])!, (quizData?[1])!, (quizData?[2])!, (quizData?[3])! ]
         
-        if let data = quizData?[0] {
-            if let image = data.getLocalCoverImage() {
-                coverImage.image = image
-                button1.setTitle ("\(data.band) - \(data.song)", for: UIControlState.normal)
-            }
-        }
+        
+        setupNextData(data: gameData)
         
  //       let randomIndex = Int(arc4random_uniform(UInt32((quizData?.count)!-1)))
   //      while playedQuizData.contains(randomIndex) { }
@@ -53,46 +68,65 @@ class GamePlayViewController: UIViewController {
         
  //       let random = Int(arc4random_uniform(UInt32((quizData?.count)!-1)))
 
-        
-//        button1.setTitle (quizData?[0].song, for: UIControlState.normal)
-//        button2.setTitle ("Karlos", for: UIControlState.normal)
-//        button3.setTitle ("William", for: UIControlState.normal)
-//        correctAnswer = "2"
-    
-  //      playedQuizData.remove(at: randomIndex)
+     //playedQuizData.remove(at: randomIndex)
     }
     
-    func setupNextData() {}
+    func setupNextData(data: [QuizDataItem]) {
+        hideYoutubeLink()
+        button1.setTitle("\(data[0].band)\n\(data[0].song)", for: UIControlState.normal)
+        button2.setTitle("\(data[1].band)\n\(data[1].song)", for: UIControlState.normal)
+        button3.setTitle("\(data[2].band)\n\(data[2].song)", for: UIControlState.normal)
+        
+        correctAnswer = Int(arc4random_uniform(3));
+        coverImage.image = data[correctAnswer].getLocalCoverImage()
+        
+        youtubeUrl = data[correctAnswer].youtube
+    }
     
     @IBAction func button1Pressed(_ sender: UIButton) {
         showNextButton()
-        if (correctAnswer == "1") {
-            labelEnd.text = "Richtig!"
-        } else{
-            labelEnd.text = "Falsch!"
+        showYoutubeLink()
+        button1.tintColor = UIColor.black
+        if (correctAnswer == 0) {
+            button1.layer.backgroundColor = UIColor.green.cgColor
+        } else {
+            button1.layer.backgroundColor = UIColor.red.cgColor
         }
     }
     
     @IBAction func button2Pressed(_ sender: UIButton) {
         showNextButton()
-        if (correctAnswer == "2") {
-            labelEnd.text = "Richtig!"
-        } else{
-            labelEnd.text = "Falsch!"
+        showYoutubeLink()
+        button2.tintColor = UIColor.black
+        if (correctAnswer == 1) {
+            button2.layer.backgroundColor = UIColor.green.cgColor
+        } else {
+            button2.layer.backgroundColor = UIColor.red.cgColor
         }
     }
     
     @IBAction func button3Pressed(_ sender: UIButton) {
         showNextButton()
-        if (correctAnswer == "3") {
-            labelEnd.text = "Richtig!"
-        } else{
-            labelEnd.text = "Falsch!"
+        showYoutubeLink()
+        button3.tintColor = UIColor.black
+        if (correctAnswer == 2) {
+            button3.layer.backgroundColor = UIColor.green.cgColor
+        } else {
+            button3.layer.backgroundColor = UIColor.red.cgColor
         }
     }
     
+    @IBAction func youtubeButtonPressed(_ sender: UIButton) {
+        if let url = URL(string: youtubeUrl!) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+    }
+
+    
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        setupNextData()
+      //  setupNextData()
     }
     
     func hideNextButton () {
@@ -101,6 +135,16 @@ class GamePlayViewController: UIViewController {
     
     func showNextButton () {
         nextButton.isHidden = false
+    }
+    
+    func showYoutubeLink() {
+        youtubeButton.isHidden = false
+        blurBackground.isHidden = false
+    }
+    
+    func hideYoutubeLink() {
+        youtubeButton.isHidden = true
+        blurBackground.isHidden = true
     }
     
     func shuffleArray(array: [Int]) -> [Int] {
@@ -113,6 +157,4 @@ class GamePlayViewController: UIViewController {
         
         return tempArray
     }
-    
-   
 }

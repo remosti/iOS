@@ -18,7 +18,7 @@ func loadQuizDataFromFile() -> [QuizDataItem]? {
         let content = try String(contentsOf: fileUrl, encoding: String.Encoding.utf8)
         let csv = CSwiftV(with: content)
         for row in csv.rows {
-            let item = QuizDataItem(ranking: Int(row[1])!, band: row[2], song: row[3], coverImage: row[4], youtube: row[5])
+            let item = QuizDataItem(ranking: Int(row[1])!, band: row[2], song: row[3], cover: row[4], youtube: row[5])
             quizData.append(item)
         }
     } catch {
@@ -57,7 +57,7 @@ func updateQuizData() -> Bool {
 func updateCoverImages(quizData: [QuizDataItem]) -> Bool {
     var updated = true
     for item in quizData {
-        let imageUrl = item.coverImage
+        let imageUrl = item.cover
         if (imageUrl != "") {
             do {
                 let fileName = (imageUrl as NSString).lastPathComponent
