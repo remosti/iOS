@@ -23,11 +23,18 @@ class GamePlayViewController: UIViewController {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var coverImage: UIImageView!
+    
     @IBOutlet weak var youtubeButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var homeButton: UIButton!
+    
     @IBOutlet weak var blurBackground: UIVisualEffectView!
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
@@ -50,7 +57,6 @@ class GamePlayViewController: UIViewController {
         button3.titleLabel?.textAlignment = NSTextAlignment.center
         button3.titleLabel?.numberOfLines = 2
 
-        hideNextButton()
         setupGame()
     }
     
@@ -72,7 +78,9 @@ class GamePlayViewController: UIViewController {
     }
     
     func setupNextData(data: [QuizDataItem]) {
-        hideYoutubeLink()
+        hideYoutubeButton()
+        hideNextButton()
+        
         button1.setTitle("\(data[0].band)\n\(data[0].song)", for: UIControlState.normal)
         button2.setTitle("\(data[1].band)\n\(data[1].song)", for: UIControlState.normal)
         button3.setTitle("\(data[2].band)\n\(data[2].song)", for: UIControlState.normal)
@@ -83,9 +91,10 @@ class GamePlayViewController: UIViewController {
         youtubeUrl = data[correctAnswer].youtube
     }
     
+   
     @IBAction func button1Pressed(_ sender: UIButton) {
+        showYoutubeButton()
         showNextButton()
-        showYoutubeLink()
         button1.tintColor = UIColor.black
         if (correctAnswer == 0) {
             button1.layer.backgroundColor = UIColor.green.cgColor
@@ -95,8 +104,8 @@ class GamePlayViewController: UIViewController {
     }
     
     @IBAction func button2Pressed(_ sender: UIButton) {
+        showYoutubeButton()
         showNextButton()
-        showYoutubeLink()
         button2.tintColor = UIColor.black
         if (correctAnswer == 1) {
             button2.layer.backgroundColor = UIColor.green.cgColor
@@ -106,8 +115,8 @@ class GamePlayViewController: UIViewController {
     }
     
     @IBAction func button3Pressed(_ sender: UIButton) {
+        showYoutubeButton()
         showNextButton()
-        showYoutubeLink()
         button3.tintColor = UIColor.black
         if (correctAnswer == 2) {
             button3.layer.backgroundColor = UIColor.green.cgColor
@@ -124,25 +133,37 @@ class GamePlayViewController: UIViewController {
         }
     }
 
-    
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-      //  setupNextData()
+        
     }
     
-    func hideNextButton () {
-        nextButton.isHidden = true
+    @IBAction func homeButtonPressed(_ sender: UIButton) {
+        let ac = UIAlertController(title: "Music Cover Quiz", message: "Wollen Sie das aktuelle Spiel wirklich abbrechen?", preferredStyle: .alert)
+        
+        let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
+            self.dismiss(animated: true, completion: nil)
+        }
+        ac.addAction(UIAlertAction(title: "Zurück", style: .default))
+        ac.addAction(okAction)
+        self.present(ac, animated: true)
     }
     
-    func showNextButton () {
+    
+    func showNextButton() {
         nextButton.isHidden = false
     }
     
-    func showYoutubeLink() {
+    func hideNextButton() {
+        nextButton.isHidden = true
+    }
+    
+    
+    func showYoutubeButton() {
         youtubeButton.isHidden = false
         blurBackground.isHidden = false
     }
     
-    func hideYoutubeLink() {
+    func hideYoutubeButton() {
         youtubeButton.isHidden = true
         blurBackground.isHidden = true
     }
