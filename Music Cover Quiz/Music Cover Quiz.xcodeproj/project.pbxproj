@@ -14,11 +14,22 @@
 		842A67A21DECB1130036DAB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842A67A01DECB1130036DAB8 /* LaunchScreen.storyboard */; };
 		A74DAAC01DEF66E700620C99 /* CSwiftV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74DAABD1DEF66E700620C99 /* CSwiftV.swift */; };
 		A74DAAC11DEF66E700620C99 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A74DAABE1DEF66E700620C99 /* LICENSE */; };
-		A74DAAC21DEF66E700620C99 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A74DAABF1DEF66E700620C99 /* README.md */; };
+		A74DAAC21DEF66E700620C99 /* README in Sources */ = {isa = PBXBuildFile; fileRef = A74DAABF1DEF66E700620C99 /* README */; };
 		A74DAAC71DEF677D00620C99 /* MusicChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74DAAC61DEF677D00620C99 /* MusicChartsLoader.swift */; };
+		A7C361E21DF964F200B8FB82 /* Music_Cover_QuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C361E11DF964F200B8FB82 /* Music_Cover_QuizTests.swift */; };
 		A7C823271DF0B8640038A3FC /* QuizData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C823261DF0B8640038A3FC /* QuizData.swift */; };
 		A7C823291DF0B9AB0038A3FC /* GamePlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C823281DF0B9AB0038A3FC /* GamePlayViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A7C361E41DF964F200B8FB82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 842A678C1DECB1130036DAB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 842A67931DECB1130036DAB8;
+			remoteInfo = "Music Cover Quiz";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		842A67941DECB1130036DAB8 /* Music Cover Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Cover Quiz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,14 +41,24 @@
 		842A67A31DECB1130036DAB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A74DAABD1DEF66E700620C99 /* CSwiftV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSwiftV.swift; sourceTree = "<group>"; };
 		A74DAABE1DEF66E700620C99 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		A74DAABF1DEF66E700620C99 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A74DAABF1DEF66E700620C99 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		A74DAAC61DEF677D00620C99 /* MusicChartsLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicChartsLoader.swift; sourceTree = "<group>"; };
+		A7C361DF1DF964F200B8FB82 /* Music Cover QuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Music Cover QuizTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7C361E11DF964F200B8FB82 /* Music_Cover_QuizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music_Cover_QuizTests.swift; sourceTree = "<group>"; };
+		A7C361E31DF964F200B8FB82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7C823261DF0B8640038A3FC /* QuizData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizData.swift; sourceTree = "<group>"; };
 		A7C823281DF0B9AB0038A3FC /* GamePlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePlayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		842A67911DECB1130036DAB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7C361DC1DF964F200B8FB82 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -52,6 +73,7 @@
 			children = (
 				A74DAAC31DEF66F500620C99 /* CSwiftV */,
 				842A67961DECB1130036DAB8 /* Music Cover Quiz */,
+				A7C361E01DF964F200B8FB82 /* Music Cover QuizTests */,
 				842A67951DECB1130036DAB8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				842A67941DECB1130036DAB8 /* Music Cover Quiz.app */,
+				A7C361DF1DF964F200B8FB82 /* Music Cover QuizTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,9 +108,18 @@
 			children = (
 				A74DAABD1DEF66E700620C99 /* CSwiftV.swift */,
 				A74DAABE1DEF66E700620C99 /* LICENSE */,
-				A74DAABF1DEF66E700620C99 /* README.md */,
+				A74DAABF1DEF66E700620C99 /* README */,
 			);
 			name = CSwiftV;
+			sourceTree = "<group>";
+		};
+		A7C361E01DF964F200B8FB82 /* Music Cover QuizTests */ = {
+			isa = PBXGroup;
+			children = (
+				A7C361E11DF964F200B8FB82 /* Music_Cover_QuizTests.swift */,
+				A7C361E31DF964F200B8FB82 /* Info.plist */,
+			);
+			path = "Music Cover QuizTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +142,24 @@
 			productReference = 842A67941DECB1130036DAB8 /* Music Cover Quiz.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A7C361DE1DF964F200B8FB82 /* Music Cover QuizTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7C361E61DF964F200B8FB82 /* Build configuration list for PBXNativeTarget "Music Cover QuizTests" */;
+			buildPhases = (
+				A7C361DB1DF964F200B8FB82 /* Sources */,
+				A7C361DC1DF964F200B8FB82 /* Frameworks */,
+				A7C361DD1DF964F200B8FB82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7C361E51DF964F200B8FB82 /* PBXTargetDependency */,
+			);
+			name = "Music Cover QuizTests";
+			productName = "Music Cover QuizTests";
+			productReference = A7C361DF1DF964F200B8FB82 /* Music Cover QuizTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -124,6 +174,12 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = PY5VJ34X6S;
 						ProvisioningStyle = Automatic;
+					};
+					A7C361DE1DF964F200B8FB82 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = PY5VJ34X6S;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 842A67931DECB1130036DAB8;
 					};
 				};
 			};
@@ -141,6 +197,7 @@
 			projectRoot = "";
 			targets = (
 				842A67931DECB1130036DAB8 /* Music Cover Quiz */,
+				A7C361DE1DF964F200B8FB82 /* Music Cover QuizTests */,
 			);
 		};
 /* End PBXProject section */
@@ -157,6 +214,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A7C361DD1DF964F200B8FB82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -165,7 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				842A679A1DECB1130036DAB8 /* ViewController.swift in Sources */,
-				A74DAAC21DEF66E700620C99 /* README.md in Sources */,
+				A74DAAC21DEF66E700620C99 /* README in Sources */,
 				A74DAAC01DEF66E700620C99 /* CSwiftV.swift in Sources */,
 				842A67981DECB1130036DAB8 /* AppDelegate.swift in Sources */,
 				A74DAAC71DEF677D00620C99 /* MusicChartsLoader.swift in Sources */,
@@ -174,7 +238,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A7C361DB1DF964F200B8FB82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7C361E21DF964F200B8FB82 /* Music_Cover_QuizTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A7C361E51DF964F200B8FB82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 842A67931DECB1130036DAB8 /* Music Cover Quiz */;
+			targetProxy = A7C361E41DF964F200B8FB82 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		842A679B1DECB1130036DAB8 /* Main.storyboard */ = {
@@ -301,6 +381,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.hslu.ios.MusicCoverQuiz.Music-Cover-Quiz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -318,6 +399,35 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.hslu.ios.MusicCoverQuiz.Music-Cover-Quiz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A7C361E71DF964F200B8FB82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = PY5VJ34X6S;
+				INFOPLIST_FILE = "Music Cover QuizTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.valentin.Music-Cover-QuizTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Music Cover Quiz.app/Music Cover Quiz";
+			};
+			name = Debug;
+		};
+		A7C361E81DF964F200B8FB82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = PY5VJ34X6S;
+				INFOPLIST_FILE = "Music Cover QuizTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.valentin.Music-Cover-QuizTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Music Cover Quiz.app/Music Cover Quiz";
 			};
 			name = Release;
 		};
@@ -341,6 +451,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A7C361E61DF964F200B8FB82 /* Build configuration list for PBXNativeTarget "Music Cover QuizTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7C361E71DF964F200B8FB82 /* Debug */,
+				A7C361E81DF964F200B8FB82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
