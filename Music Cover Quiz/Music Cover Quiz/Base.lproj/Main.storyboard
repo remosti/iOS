@@ -274,19 +274,7 @@
                                     <constraint firstAttribute="height" constant="240" id="ZEc-EW-Iug"/>
                                 </constraints>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oL4-9y-LNg">
-                                <rect key="frame" x="40" y="50" width="240" height="240"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LW9-nM-DX8">
-                                    <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="GiN-fi-2M4"/>
-                                    <constraint firstAttribute="height" constant="240" id="YdP-tB-DRn"/>
-                                </constraints>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
-                            <visualEffectView opaque="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLJ-3w-O6v">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLJ-3w-O6v">
                                 <rect key="frame" x="41" y="254" width="238" height="36"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vHk-U8-QBE">
                                     <rect key="frame" x="0.0" y="0.0" width="238" height="36"/>
@@ -334,21 +322,6 @@
                                     <action selector="homeButtonPressed:" destination="bQz-uZ-73Z" eventType="touchUpInside" id="PPs-IB-K1b"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfV-rS-d33">
-                                <rect key="frame" x="100" y="146" width="120" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="9SG-9H-bp6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
-                                <size key="titleShadowOffset" width="1" height="-1"/>
-                                <state key="normal" title=" START ">
-                                    <color key="titleColor" red="0.0" green="0.6510540843" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startButtonPressed:" destination="bQz-uZ-73Z" eventType="touchUpInside" id="tdB-Qe-JN7"/>
-                                </connections>
-                            </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tHo-OU-eOY">
                                 <rect key="frame" x="41" y="298" width="238" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -386,6 +359,22 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="-1"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfV-rS-d33">
+                                <rect key="frame" x="60" y="120" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="9SG-9H-bp6"/>
+                                    <constraint firstAttribute="height" constant="100" id="VgT-FQ-Wg6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                <size key="titleShadowOffset" width="1" height="-1"/>
+                                <state key="normal" title=" START ">
+                                    <color key="titleColor" red="0.0" green="0.6510540843" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="bQz-uZ-73Z" eventType="touchUpInside" id="tdB-Qe-JN7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -394,16 +383,14 @@
                             <constraint firstItem="2gH-ta-eZg" firstAttribute="top" secondItem="LFK-Pu-Vt2" secondAttribute="bottom" constant="17" id="1YB-gB-x4C"/>
                             <constraint firstItem="NLJ-3w-O6v" firstAttribute="centerX" secondItem="s1g-XT-owP" secondAttribute="centerX" id="5VL-op-ZSN"/>
                             <constraint firstItem="CyN-aX-w5v" firstAttribute="top" secondItem="PJS-MF-qpw" secondAttribute="bottom" constant="20" id="6gt-wW-XFn"/>
-                            <constraint firstItem="vfV-rS-d33" firstAttribute="top" secondItem="LFK-Pu-Vt2" secondAttribute="bottom" constant="146" id="7Cj-MC-TKT"/>
+                            <constraint firstItem="vfV-rS-d33" firstAttribute="top" secondItem="s1g-XT-owP" secondAttribute="top" constant="120" id="6yu-gS-71q"/>
                             <constraint firstItem="NLJ-3w-O6v" firstAttribute="bottom" secondItem="9e2-RB-ypu" secondAttribute="bottom" id="D6y-Tv-MCx"/>
                             <constraint firstItem="4CI-UL-MgA" firstAttribute="top" secondItem="CyN-aX-w5v" secondAttribute="bottom" constant="20" id="Drj-fJ-gea"/>
-                            <constraint firstItem="oL4-9y-LNg" firstAttribute="top" secondItem="uaP-4z-ouP" secondAttribute="bottom" constant="8" id="Dsi-2p-fFD"/>
                             <constraint firstItem="VGi-Uz-rzA" firstAttribute="top" secondItem="LFK-Pu-Vt2" secondAttribute="bottom" constant="17" id="J0i-Jq-JUG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VGi-Uz-rzA" secondAttribute="trailing" constant="23" id="J7d-ej-3U3"/>
                             <constraint firstItem="W64-5F-9aD" firstAttribute="trailing" secondItem="9e2-RB-ypu" secondAttribute="trailing" constant="-3" id="JPN-DH-QUY"/>
                             <constraint firstItem="uaP-4z-ouP" firstAttribute="leading" secondItem="s1g-XT-owP" secondAttribute="leadingMargin" id="LIP-hY-8RN"/>
-                            <constraint firstItem="oL4-9y-LNg" firstAttribute="centerX" secondItem="s1g-XT-owP" secondAttribute="centerX" id="PW1-2i-Zg4"/>
-                            <constraint firstItem="vfV-rS-d33" firstAttribute="centerX" secondItem="s1g-XT-owP" secondAttribute="centerX" id="ZD5-Ny-vqM"/>
+                            <constraint firstItem="vfV-rS-d33" firstAttribute="centerX" secondItem="s1g-XT-owP" secondAttribute="centerX" id="X7c-uk-Ojf"/>
                             <constraint firstItem="lgn-xX-df5" firstAttribute="trailing" secondItem="9e2-RB-ypu" secondAttribute="trailing" constant="-5" id="asj-BZ-tCf"/>
                             <constraint firstItem="9e2-RB-ypu" firstAttribute="centerX" secondItem="s1g-XT-owP" secondAttribute="centerX" id="auv-YT-fxp"/>
                             <constraint firstItem="W64-5F-9aD" firstAttribute="bottom" secondItem="9e2-RB-ypu" secondAttribute="bottom" constant="-3" id="ddy-sC-e6I"/>
@@ -425,7 +412,6 @@
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="blurBackground" destination="NLJ-3w-O6v" id="LTu-Em-IWr"/>
-                        <outlet property="blurView" destination="oL4-9y-LNg" id="Rzy-VV-fAZ"/>
                         <outlet property="button1" destination="PJS-MF-qpw" id="0xy-LC-0cB"/>
                         <outlet property="button2" destination="CyN-aX-w5v" id="Rgc-3J-h2L"/>
                         <outlet property="button3" destination="4CI-UL-MgA" id="MO7-ei-Xid"/>
@@ -437,11 +423,9 @@
                         <outlet property="scoreLabel" destination="VGi-Uz-rzA" id="46K-ap-oe5"/>
                         <outlet property="startButton" destination="vfV-rS-d33" id="tr3-rf-TIE"/>
                         <outlet property="youtubeButton" destination="W64-5F-9aD" id="8eG-9f-CMU"/>
-                        <segue destination="Jrw-hF-gfg" kind="unwind" unwindAction="unwindBackToMainViewWithSegue:" id="gZd-Mc-bLS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EiC-6o-Tnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Jrw-hF-gfg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="155.625" y="141.5492957746479"/>
         </scene>

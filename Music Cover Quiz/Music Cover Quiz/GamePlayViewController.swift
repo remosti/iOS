@@ -16,7 +16,7 @@ class GamePlayViewController: UIViewController {
     
     let maxPlayRound = 5
 
-    var correctAnswer: Int = 0
+    var correctAnswer: Int = -1
     
     var quizData: [QuizDataItem]?
     
@@ -25,12 +25,14 @@ class GamePlayViewController: UIViewController {
     var shuffledQuizDataIndex: [Int]?
 
     var playRound = 0
-    
-    var animator: UIViewPropertyAnimator?
-    var counter = 0.0
+
+    var counter = 0
     var score = 0
     
     var timer: Timer?
+    
+    let effectView = UIVisualEffectView()
+    let alpha  = [1.0, 0.98, 0.95, 0.9, 0.85, 0.8, 0.75, 0.7, 0.4, 0.2, 0.0]
 
     
     @IBOutlet weak var button1: UIButton!
@@ -46,15 +48,15 @@ class GamePlayViewController: UIViewController {
     
     @IBOutlet weak var blurBackground: UIVisualEffectView!
     
-    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var progressBar: UIProgressView!
 
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var playRoundLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         
         coverImage.layer.borderColor = UIColor.white.cgColor
         coverImage.layer.borderWidth = 1
@@ -75,10 +77,13 @@ class GamePlayViewController: UIViewController {
         button3.titleLabel?.numberOfLines = 2
         
         startButton.layer.cornerRadius = 8
+
+        effectView.effect = UIBlurEffect(style: .light)
+        effectView.frame = coverImage.bounds
+        coverImage.addSubview(effectView)
         
-        animator = UIViewPropertyAnimator(duration: 1, curve: .easeOut) {
-            self.blurView.effect = nil
-        }
+        blurBackground.effect = UIBlurEffect(style: .regular)
+        blurBackground.alpha = 0.5
 
         resetGameplayView()
         showStartButton()
@@ -87,7 +92,7 @@ class GamePlayViewController: UIViewController {
     func setupNewGame() {
         playRound = 1
         score = 0
-        scoreLabel.text = "0"
+        scoreLabel.text = String(score)
         shuffledQuizDataIndex = Array(0...19).shuffled()
         setupNewData()
         resetGameplayView()
@@ -110,7 +115,7 @@ class GamePlayViewController: UIViewController {
         
         playRoundLabel.text = "\(playRound) / \(maxPlayRound)"
         
-    //    timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(self.stepUnblur), userInfo: nil, repeats: true);
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stepUnblur), userInfo: nil, repeats: true)
     }
     
     func resetGameplayView() {
@@ -119,9 +124,9 @@ class GamePlayViewController: UIViewController {
         hideYoutubeButton()
         hideStartButton()
         
-        button1.layer.backgroundColor = self.blue.cgColor
-        button2.layer.backgroundColor = self.blue.cgColor
-        button3.layer.backgroundColor = self.blue.cgColor
+        button1.layer.backgroundColor = blue.cgColor
+        button2.layer.backgroundColor = blue.cgColor
+        button3.layer.backgroundColor = blue.cgColor
         
         button1.tintColor = UIColor.white
         button2.tintColor = UIColor.white
@@ -136,9 +141,7 @@ class GamePlayViewController: UIViewController {
         evaluate(answer: correctAnswer == 0)
         button1.tintColor = UIColor.black
         button1.layer.backgroundColor = (correctAnswer == 0) ? UIColor.green.cgColor : UIColor.red.cgColor
-        button1.isEnabled = false
-        button2.isEnabled = false
-        button3.isEnabled = false
+        disableButtons()
     }
     
     @IBAction func button2Pressed(_ sender: UIButton) {
@@ -146,9 +149,7 @@ class GamePlayViewController: UIViewController {
         evaluate(answer: correctAnswer == 1)
         button2.tintColor = UIColor.black
         button2.layer.backgroundColor = (correctAnswer == 1) ? UIColor.green.cgColor : UIColor.red.cgColor
-        button1.isEnabled = false
-        button2.isEnabled = false
-        button3.isEnabled = false
+        disableButtons()
     }
     
     @IBAction func button3Pressed(_ sender: UIButton) {
@@ -156,9 +157,7 @@ class GamePlayViewController: UIViewController {
         evaluate(answer: correctAnswer == 2)
         button3.tintColor = UIColor.black
         button3.layer.backgroundColor = (correctAnswer == 2) ? UIColor.green.cgColor : UIColor.red.cgColor
-        button1.isEnabled = false
-        button2.isEnabled = false
-        button3.isEnabled = false
+        disableButtons()
     }
     
     @IBAction func youtubeButtonPressed(_ sender: UIButton) {
@@ -170,20 +169,19 @@ class GamePlayViewController: UIViewController {
     }
 
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        setupNewData()
         resetGameplayView()
+        setupNewData()
       }
-    
 
     @IBAction func homeButtonPressed(_ sender: UIButton) {
-        if self.playRound != 0 {
+        if playRound != 0 {
             let ac = UIAlertController(title: "Music Cover Quiz", message: "Wollen Sie das aktuelle Spiel wirklich abbrechen?", preferredStyle: .alert)
             let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
                 self.dismiss(animated: true, completion: nil)
             }
             ac.addAction(UIAlertAction(title: "Zurück", style: .default))
             ac.addAction(okAction)
-            self.present(ac, animated: true)
+            present(ac, animated: true)
         }
     }
     
@@ -197,12 +195,12 @@ class GamePlayViewController: UIViewController {
         unblur()
         showYoutubeButton()
         
-        if correct {
-            score += Int(10 - self.counter)
-            self.scoreLabel.text = String(score)
+        if correct && counter <= 10 {
+            score += (10 - counter)
+            scoreLabel.text = String(score)
         }
 
-        if self.playRound == 5 {
+        if playRound == 5 {
             var inputTextField: UITextField?
             let usernamePrompt = UIAlertController(title: "Music Cover Quiz", message: "Gratulation, Sie haben \(score) Punkte erspielt!", preferredStyle: UIAlertControllerStyle.alert)
             usernamePrompt.addAction(UIAlertAction(title: "Abbrechen", style: UIAlertActionStyle.default, handler: nil))
@@ -215,31 +213,32 @@ class GamePlayViewController: UIViewController {
                 textField.placeholder = "Spielername"
                 inputTextField = textField
             })
-            self.present(usernamePrompt, animated: true, completion: nil)
-            self.playRound = 0
+            present(usernamePrompt, animated: true, completion: nil)
+            playRound = 0
             showStartButton()
         } else {
-            self.playRound += 1
+            playRound += 1
             showNextButton()
         }
     }
     
     func stepUnblur() {
-        if counter <= 1 {
-            animator?.fractionComplete = CGFloat(counter)
-            progressBar.progress = Float(1 - counter)
-            counter += 0.005
+        print(counter)
+        if counter <= 10 {
+            effectView.alpha = CGFloat(alpha[counter])
+            progressBar.progress = 1.0 - Float(counter)/10
+            counter += 1
         }
     }
     
     func unblur() {
-     //   animator?.fractionComplete = CGFloat(1)
+        effectView.alpha = CGFloat(alpha[10])
     }
     
     func resetBlur() {
         counter = 0
-        animator?.fractionComplete = CGFloat(0)
-        progressBar.progress = Float(1 - counter)
+        effectView.alpha = CGFloat(alpha[counter])
+        progressBar.progress = 1.0
     }
 
     
@@ -267,5 +266,11 @@ class GamePlayViewController: UIViewController {
     
     func hideStartButton() {
         startButton.isHidden = true
+    }
+    
+    func disableButtons() {
+        button1.isEnabled = false
+        button2.isEnabled = false
+        button3.isEnabled = false
     }
 }
