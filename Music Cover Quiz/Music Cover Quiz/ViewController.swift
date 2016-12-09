@@ -61,5 +61,10 @@ class ViewController: UIViewController {
         gameplayViewController.quizData = self.quizData
         self.present(gameplayViewController, animated: true, completion: nil)
     }
+    @IBAction func showLeaderboardButtonPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let leaderboardViewControl : UIViewController = storyboard.instantiateViewController(withIdentifier: "LeaderBoard") as! LeaderboardViewController
+        self.present(leaderboardViewControl, animated: true, completion: nil)
+    }
 }
 
