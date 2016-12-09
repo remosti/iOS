@@ -13,6 +13,8 @@ import AVFoundation
 class GamePlayViewController: UIViewController {
     
     let blue = UIColor(red: 0.0/255.0, green: 166.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+    
+    let maxPlayRound = 5
 
     var correctAnswer: Int = 0
     
@@ -26,7 +28,7 @@ class GamePlayViewController: UIViewController {
     
     var animator: UIViewPropertyAnimator?
     var counter = 0.0
-    var scoreTotal = 0
+    var score = 0
     
     var timer: Timer?
 
@@ -47,7 +49,8 @@ class GamePlayViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var blurView: UIVisualEffectView!
 
-    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var playRoundLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +74,8 @@ class GamePlayViewController: UIViewController {
         button3.titleLabel?.textAlignment = NSTextAlignment.center
         button3.titleLabel?.numberOfLines = 2
         
+        startButton.layer.cornerRadius = 8
+        
         animator = UIViewPropertyAnimator(duration: 1, curve: .easeOut) {
             self.blurView.effect = nil
         }
@@ -79,16 +84,16 @@ class GamePlayViewController: UIViewController {
         showStartButton()
     }
     
-    func setupGame() {
+    func setupNewGame() {
         playRound = 1
-        scoreTotal = 0
-        score.text = "0"
-        shuffledQuizDataIndex = shuffleArray(array: Array(0...19))
-        setupNextData()
+        score = 0
+        scoreLabel.text = "0"
+        shuffledQuizDataIndex = Array(0...19).shuffled()
+        setupNewData()
         resetGameplayView()
     }
     
-    func setupNextData() {
+    func setupNewData() {
         let gameData: [QuizDataItem] = [
             (quizData?[shuffledQuizDataIndex![0 + 3*(playRound-1)]])!,
             (quizData?[shuffledQuizDataIndex![1 + 3*(playRound-1)]])!,
@@ -103,7 +108,9 @@ class GamePlayViewController: UIViewController {
         coverImage.image = gameData[correctAnswer].getLocalCoverImage()
         youtubeUrl = gameData[correctAnswer].youtube
         
-        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(self.stepUnblur), userInfo: nil, repeats: true);
+        playRoundLabel.text = "\(playRound) / \(maxPlayRound)"
+        
+    //    timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(self.stepUnblur), userInfo: nil, repeats: true);
     }
     
     func resetGameplayView() {
@@ -129,6 +136,7 @@ class GamePlayViewController: UIViewController {
         evaluate(answer: correctAnswer == 0)
         button1.tintColor = UIColor.black
         button1.layer.backgroundColor = (correctAnswer == 0) ? UIColor.green.cgColor : UIColor.red.cgColor
+        button1.isEnabled = false
         button2.isEnabled = false
         button3.isEnabled = false
     }
@@ -139,6 +147,7 @@ class GamePlayViewController: UIViewController {
         button2.tintColor = UIColor.black
         button2.layer.backgroundColor = (correctAnswer == 1) ? UIColor.green.cgColor : UIColor.red.cgColor
         button1.isEnabled = false
+        button2.isEnabled = false
         button3.isEnabled = false
     }
     
@@ -149,6 +158,7 @@ class GamePlayViewController: UIViewController {
         button3.layer.backgroundColor = (correctAnswer == 2) ? UIColor.green.cgColor : UIColor.red.cgColor
         button1.isEnabled = false
         button2.isEnabled = false
+        button3.isEnabled = false
     }
     
     @IBAction func youtubeButtonPressed(_ sender: UIButton) {
@@ -160,7 +170,7 @@ class GamePlayViewController: UIViewController {
     }
 
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        setupNextData()
+        setupNewData()
         resetGameplayView()
       }
     
@@ -168,7 +178,6 @@ class GamePlayViewController: UIViewController {
     @IBAction func homeButtonPressed(_ sender: UIButton) {
         if self.playRound != 0 {
             let ac = UIAlertController(title: "Music Cover Quiz", message: "Wollen Sie das aktuelle Spiel wirklich abbrechen?", preferredStyle: .alert)
-            
             let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
                 self.dismiss(animated: true, completion: nil)
             }
@@ -179,7 +188,7 @@ class GamePlayViewController: UIViewController {
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
-        setupGame()
+        setupNewGame()
     }
     
     func evaluate(answer correct: Bool) {
@@ -189,18 +198,26 @@ class GamePlayViewController: UIViewController {
         showYoutubeButton()
         
         if correct {
-            scoreTotal += Int(10 - self.counter * 10)
-            self.score.text = String(scoreTotal)
+            score += Int(10 - self.counter)
+            self.scoreLabel.text = String(score)
         }
 
         if self.playRound == 5 {
-            let ac = UIAlertController(title: "Music Cover Quiz", message: "Gratulation", preferredStyle: .alert)
-            let okAction: UIAlertAction = UIAlertAction(title: "Danke", style: .default) { action -> Void in
-                self.showStartButton()
-            }
-            ac.addAction(okAction)
-            self.present(ac, animated: true)
+            var inputTextField: UITextField?
+            let usernamePrompt = UIAlertController(title: "Music Cover Quiz", message: "Gratulation, Sie haben \(score) Punkte erspielt!", preferredStyle: UIAlertControllerStyle.alert)
+            usernamePrompt.addAction(UIAlertAction(title: "Abbrechen", style: UIAlertActionStyle.default, handler: nil))
+            usernamePrompt.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                // score und Spielername speichern!
+                let username = (inputTextField?.text)!
+                print("\(username): \(self.score)")
+            }))
+            usernamePrompt.addTextField(configurationHandler: {(textField: UITextField!) in
+                textField.placeholder = "Spielername"
+                inputTextField = textField
+            })
+            self.present(usernamePrompt, animated: true, completion: nil)
             self.playRound = 0
+            showStartButton()
         } else {
             self.playRound += 1
             showNextButton()
@@ -208,13 +225,15 @@ class GamePlayViewController: UIViewController {
     }
     
     func stepUnblur() {
-        animator?.fractionComplete = CGFloat(counter)
-        progressBar.progress = Float(1 - counter)
-        counter += 0.005
+        if counter <= 1 {
+            animator?.fractionComplete = CGFloat(counter)
+            progressBar.progress = Float(1 - counter)
+            counter += 0.005
+        }
     }
     
     func unblur() {
-        animator?.fractionComplete = 1.0
+     //   animator?.fractionComplete = CGFloat(1)
     }
     
     func resetBlur() {
@@ -248,16 +267,5 @@ class GamePlayViewController: UIViewController {
     
     func hideStartButton() {
         startButton.isHidden = true
-    }
-    
-    func shuffleArray(array: [Int]) -> [Int] {
-        var tempArray = array
-        for index in 0...array.count - 1 {
-            let randomNumber = arc4random_uniform(UInt32(array.count - 1))
-            let randomIndex = Int(randomNumber)
-            tempArray[randomIndex] = array[index]
-        }
-        
-        return tempArray
     }
 }

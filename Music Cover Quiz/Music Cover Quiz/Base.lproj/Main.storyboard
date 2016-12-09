@@ -136,10 +136,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PRe-1E-7Z6">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="287.5" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PRe-1E-7Z6" id="tbN-Px-uia">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rang" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBb-by-moC">
@@ -273,9 +273,6 @@
                                     <constraint firstAttribute="width" constant="240" id="SlA-0j-3Mw"/>
                                     <constraint firstAttribute="height" constant="240" id="ZEc-EW-Iug"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="dW3-Bz-Kee" appends="YES" id="TSo-Cj-uiG"/>
-                                </connections>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oL4-9y-LNg">
                                 <rect key="frame" x="40" y="50" width="240" height="240"/>
@@ -338,13 +335,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfV-rS-d33">
-                                <rect key="frame" x="110" y="146" width="100" height="48"/>
+                                <rect key="frame" x="100" y="146" width="120" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="9SG-9H-bp6"/>
+                                    <constraint firstAttribute="width" constant="120" id="9SG-9H-bp6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="START">
+                                <size key="titleShadowOffset" width="1" height="-1"/>
+                                <state key="normal" title=" START ">
                                     <color key="titleColor" red="0.0" green="0.6510540843" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -360,22 +357,34 @@
                                 <color key="trackTintColor" red="1" green="0.93799828119999995" blue="0.96487716680000002" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Punktezahl" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gH-ta-eZg">
-                                <rect key="frame" x="158" y="17" width="85" height="21"/>
+                                <rect key="frame" x="164" y="17" width="85" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="zd1-RY-sCh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.070588235294117646" green="0.57647058823529407" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="-1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGi-Uz-rzA">
-                                <rect key="frame" x="251" y="17" width="30" height="21"/>
+                                <rect key="frame" x="251" y="17" width="30" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="F25-tk-ewA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.070588235289999995" green="0.57647058819999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="-1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 / 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uwk-lp-rLT">
+                                <rect key="frame" x="143.5" y="526.5" width="33" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="-1"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -403,7 +412,9 @@
                             <constraint firstItem="CyN-aX-w5v" firstAttribute="centerX" secondItem="s1g-XT-owP" secondAttribute="centerX" id="iU7-BV-Bun"/>
                             <constraint firstItem="PJS-MF-qpw" firstAttribute="centerX" secondItem="s1g-XT-owP" secondAttribute="centerX" id="oB2-uD-e1h"/>
                             <constraint firstItem="PJS-MF-qpw" firstAttribute="top" secondItem="9e2-RB-ypu" secondAttribute="bottom" constant="45" id="swh-C6-geJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2gH-ta-eZg" secondAttribute="trailing" constant="61" id="tb2-vg-nWt"/>
+                            <constraint firstItem="Q18-y5-698" firstAttribute="top" secondItem="Uwk-lp-rLT" secondAttribute="bottom" constant="20" id="tVQ-hq-4uC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2gH-ta-eZg" secondAttribute="trailing" constant="55" id="tb2-vg-nWt"/>
+                            <constraint firstItem="Uwk-lp-rLT" firstAttribute="centerX" secondItem="s1g-XT-owP" secondAttribute="centerX" id="tgG-io-4xC"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -421,8 +432,9 @@
                         <outlet property="coverImage" destination="9e2-RB-ypu" id="7kB-6W-7nd"/>
                         <outlet property="homeButton" destination="uaP-4z-ouP" id="xMJ-xr-KKB"/>
                         <outlet property="nextButton" destination="lgn-xX-df5" id="DKs-0A-8Xd"/>
+                        <outlet property="playRoundLabel" destination="Uwk-lp-rLT" id="W7n-dh-d7e"/>
                         <outlet property="progressBar" destination="tHo-OU-eOY" id="cNI-Hr-elZ"/>
-                        <outlet property="score" destination="VGi-Uz-rzA" id="hyV-fV-kae"/>
+                        <outlet property="scoreLabel" destination="VGi-Uz-rzA" id="46K-ap-oe5"/>
                         <outlet property="startButton" destination="vfV-rS-d33" id="tr3-rf-TIE"/>
                         <outlet property="youtubeButton" destination="W64-5F-9aD" id="8eG-9f-CMU"/>
                         <segue destination="Jrw-hF-gfg" kind="unwind" unwindAction="unwindBackToMainViewWithSegue:" id="gZd-Mc-bLS"/>
@@ -430,7 +442,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EiC-6o-Tnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Jrw-hF-gfg" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="dW3-Bz-Kee"/>
             </objects>
             <point key="canvasLocation" x="155.625" y="141.5492957746479"/>
         </scene>

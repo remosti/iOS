@@ -12,6 +12,7 @@
 		842A679D1DECB1130036DAB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842A679B1DECB1130036DAB8 /* Main.storyboard */; };
 		842A679F1DECB1130036DAB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842A679E1DECB1130036DAB8 /* Assets.xcassets */; };
 		842A67A21DECB1130036DAB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842A67A01DECB1130036DAB8 /* LaunchScreen.storyboard */; };
+		A74A99C81DFAF991006399A6 /* ShuffleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A99C71DFAF991006399A6 /* ShuffleExtension.swift */; };
 		A74DAAC01DEF66E700620C99 /* CSwiftV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74DAABD1DEF66E700620C99 /* CSwiftV.swift */; };
 		A74DAAC11DEF66E700620C99 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A74DAABE1DEF66E700620C99 /* LICENSE */; };
 		A74DAAC21DEF66E700620C99 /* README in Sources */ = {isa = PBXBuildFile; fileRef = A74DAABF1DEF66E700620C99 /* README */; };
@@ -39,6 +40,7 @@
 		842A679E1DECB1130036DAB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		842A67A11DECB1130036DAB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		842A67A31DECB1130036DAB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A74A99C71DFAF991006399A6 /* ShuffleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShuffleExtension.swift; sourceTree = "<group>"; };
 		A74DAABD1DEF66E700620C99 /* CSwiftV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSwiftV.swift; sourceTree = "<group>"; };
 		A74DAABE1DEF66E700620C99 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A74DAABF1DEF66E700620C99 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				842A67A31DECB1130036DAB8 /* Info.plist */,
 				A7C823261DF0B8640038A3FC /* QuizData.swift */,
 				A7C823281DF0B9AB0038A3FC /* GamePlayViewController.swift */,
+				A74A99C71DFAF991006399A6 /* ShuffleExtension.swift */,
 			);
 			path = "Music Cover Quiz";
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				842A679A1DECB1130036DAB8 /* ViewController.swift in Sources */,
 				A74DAAC21DEF66E700620C99 /* README in Sources */,
 				A74DAAC01DEF66E700620C99 /* CSwiftV.swift in Sources */,
+				A74A99C81DFAF991006399A6 /* ShuffleExtension.swift in Sources */,
 				842A67981DECB1130036DAB8 /* AppDelegate.swift in Sources */,
 				A74DAAC71DEF677D00620C99 /* MusicChartsLoader.swift in Sources */,
 				A7C823291DF0B9AB0038A3FC /* GamePlayViewController.swift in Sources */,
@@ -459,6 +463,7 @@
 				A7C361E81DF964F200B8FB82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
