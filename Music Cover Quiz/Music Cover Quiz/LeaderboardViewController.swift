@@ -17,6 +17,7 @@ class LeaderboardViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         // Aktuelle Rangliste aus dem File-Store
         leaderBoard = loadLeaderBoard()
         
