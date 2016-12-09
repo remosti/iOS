@@ -29,13 +29,6 @@ func loadQuizDataFromFile() -> [QuizDataItem]? {
 
 func updateQuizData() -> Bool {
     let fileUrl = getDocumentsDirectory().appendingPathComponent("quizdata.data")
-    
-    do {
-        try FileManager.default.removeItem(at: fileUrl)
-    } catch {
-        print("No quiz data deleted: \(error)")
-    }
-    
     do {
         if let data = URL(string: googleDocsUrl) {
             let content = try String(contentsOf: data)

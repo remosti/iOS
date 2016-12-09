@@ -13,8 +13,6 @@ import AVFoundation
 class GamePlayViewController: UIViewController {
     
     let blue = UIColor(red: 0.0/255.0, green: 166.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-    
-    let maxPlayRound = 5
 
     var correctAnswer: Int = -1
     
@@ -24,15 +22,15 @@ class GamePlayViewController: UIViewController {
     
     var shuffledQuizDataIndex: [Int]?
 
+    let maxPlayRound = 5
     var playRound = 0
-
     var counter = 0
     var score = 0
     
     var timer: Timer?
     
     let effectView = UIVisualEffectView()
-    let alpha  = [1.0, 0.98, 0.95, 0.9, 0.85, 0.8, 0.75, 0.7, 0.4, 0.2, 0.0]
+    let alpha  = [1.0, 0.98, 0.95, 0.92, 0.9, 0.85, 0.8, 0.75, 0.7, 0.4, 0.2, 0.0]
 
     
     @IBOutlet weak var button1: UIButton!
@@ -51,6 +49,9 @@ class GamePlayViewController: UIViewController {
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var progressBar: UIProgressView!
 
+    @IBOutlet weak var pointsButton1: UILabel!
+    @IBOutlet weak var pointsButton2: UILabel!
+    @IBOutlet weak var pointsButton3: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var playRoundLabel: UILabel!
     
@@ -135,6 +136,10 @@ class GamePlayViewController: UIViewController {
         button1.isEnabled = true
         button2.isEnabled = true
         button3.isEnabled = true
+        
+        pointsButton1.isHidden = true
+        pointsButton2.isHidden = true
+        pointsButton3.isHidden = true
     }
    
     @IBAction func button1Pressed(_ sender: UIButton) {
@@ -142,6 +147,7 @@ class GamePlayViewController: UIViewController {
         button1.tintColor = UIColor.black
         button1.layer.backgroundColor = (correctAnswer == 0) ? UIColor.green.cgColor : UIColor.red.cgColor
         disableButtons()
+        pointsButton1.fadeOut()
     }
     
     @IBAction func button2Pressed(_ sender: UIButton) {
@@ -150,6 +156,7 @@ class GamePlayViewController: UIViewController {
         button2.tintColor = UIColor.black
         button2.layer.backgroundColor = (correctAnswer == 1) ? UIColor.green.cgColor : UIColor.red.cgColor
         disableButtons()
+        pointsButton2.fadeOut()
     }
     
     @IBAction func button3Pressed(_ sender: UIButton) {
@@ -158,6 +165,7 @@ class GamePlayViewController: UIViewController {
         button3.tintColor = UIColor.black
         button3.layer.backgroundColor = (correctAnswer == 2) ? UIColor.green.cgColor : UIColor.red.cgColor
         disableButtons()
+        pointsButton3.fadeOut()
     }
     
     @IBAction func youtubeButtonPressed(_ sender: UIButton) {
@@ -182,6 +190,8 @@ class GamePlayViewController: UIViewController {
             ac.addAction(UIAlertAction(title: "Zurück", style: .default))
             ac.addAction(okAction)
             present(ac, animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -227,18 +237,18 @@ class GamePlayViewController: UIViewController {
         if counter <= 10 {
             counter += 1
             effectView.alpha = CGFloat(alpha[counter])
-            progressBar.progress = 1.0 - Float(counter)/10
+            progressBar.progress = Float(10 - counter) * 0.1
         }
     }
     
     func unblur() {
-        effectView.alpha = CGFloat(alpha[10])
+        effectView.alpha = 0.0
     }
     
     func resetBlur() {
         counter = 0
         effectView.alpha = CGFloat(alpha[counter])
-        progressBar.progress = 1.0
+        progressBar.progress = Float(10 - counter) * 0.1
     }
 
     
@@ -272,5 +282,21 @@ class GamePlayViewController: UIViewController {
         button1.isEnabled = false
         button2.isEnabled = false
         button3.isEnabled = false
+    }
+}
+
+extension UIView {
+    func fadeIn(duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+        self.isHidden = false
+        UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveLinear, animations: {
+            self.alpha = 1.0
+        }, completion: completion)  }
+    
+    func fadeOut(duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
+        self.isHidden = false
+        UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveLinear, animations: {
+            self.alpha = 0.0
+        }, completion: completion)
+        self.isHidden = true
     }
 }
