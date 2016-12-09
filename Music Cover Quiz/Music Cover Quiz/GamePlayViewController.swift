@@ -225,9 +225,9 @@ class GamePlayViewController: UIViewController {
     func stepUnblur() {
         print(counter)
         if counter <= 10 {
+            counter += 1
             effectView.alpha = CGFloat(alpha[counter])
             progressBar.progress = 1.0 - Float(counter)/10
-            counter += 1
         }
     }
     
