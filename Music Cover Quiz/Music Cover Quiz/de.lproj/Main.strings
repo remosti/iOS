@@ -2,7 +2,7 @@
 "2gH-ta-eZg.text" = "Punktezahl";
 
 /* Class = "UIButton"; normalTitle = "Quiz"; ObjectID = "5Js-kJ-Zbr"; */
-"5Js-kJ-Zbr.normalTitle" = "Spiel";
+"5Js-kJ-Zbr.normalTitle" = "Quiz";
 
 /* Class = "UILabel"; text = "Leaderboard"; ObjectID = "6Ih-fh-A0g"; */
 "6Ih-fh-A0g.text" = "Rangliste";
