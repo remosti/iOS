@@ -61,10 +61,17 @@ class ViewController: UIViewController {
         gameplayViewController.quizData = self.quizData
         self.present(gameplayViewController, animated: true, completion: nil)
     }
+    
     @IBAction func showLeaderboardButtonPressed(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let leaderboardViewControl : UIViewController = storyboard.instantiateViewController(withIdentifier: "LeaderBoard") as! LeaderboardViewController
         self.present(leaderboardViewControl, animated: true, completion: nil)
+    }
+    
+    @IBAction func showMusicChartsButtonPressed(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let musicChartsViewControl : UIViewController = storyboard.instantiateViewController(withIdentifier: "MusicCharts") as! MusicChartsViewController
+        self.present(musicChartsViewControl, animated: true, completion: nil)
     }
 }
 
