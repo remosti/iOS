@@ -23,43 +23,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Js-kJ-Zbr">
-                                <rect key="frame" x="62.5" y="200" width="195" height="40"/>
+                                <rect key="frame" x="60" y="200" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.65105408430099487" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="195" id="odi-PK-BBC"/>
+                                    <constraint firstAttribute="width" constant="200" id="odi-PK-BBC"/>
                                     <constraint firstAttribute="height" constant="40" id="xfm-VZ-Gqq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.9574703574180603" green="0.99982327222824097" blue="0.97409063577651978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Spiel"/>
+                                <state key="normal" title="Quiz"/>
                                 <connections>
                                     <action selector="playGameButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F16-Oy-Qdi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHs-tk-msI">
-                                <rect key="frame" x="62.5" y="257" width="195" height="40"/>
+                                <rect key="frame" x="60" y="257" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.65105408430099487" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="195" id="5me-f5-sE2"/>
+                                    <constraint firstAttribute="width" constant="200" id="5me-f5-sE2"/>
                                     <constraint firstAttribute="height" constant="40" id="MAB-wa-bmd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.9574703574180603" green="0.99982327222824097" blue="0.97409063577651978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Rangliste"/>
+                                <state key="normal" title="Leaderboard"/>
                                 <connections>
                                     <action selector="showLeaderboardButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JYi-lq-Q01"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAk-hS-d2C">
-                                <rect key="frame" x="62.5" y="314" width="195" height="40"/>
+                                <rect key="frame" x="60" y="314" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.65105408430099487" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="A6o-Af-EO2"/>
-                                    <constraint firstAttribute="width" constant="195" id="sNk-ez-2qI"/>
+                                    <constraint firstAttribute="width" constant="200" id="sNk-ez-2qI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.9574703574180603" green="0.99982327222824097" blue="0.97409063577651978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Schweizer Charts"/>
+                                <state key="normal" title="Swiss Music Charts"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Cover Quiz" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5d-Kr-ht6">
                                 <rect key="frame" x="11" y="70" width="298" height="45"/>
@@ -69,7 +69,7 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="1" height="-2"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valentin Schuler / Remo Stirnimann" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mD-z5-CyH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© Valentin Schuler &amp; Remo Stirnimann" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mD-z5-CyH">
                                 <rect key="frame" x="25.5" y="538.5" width="269" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="269" id="9UE-SY-FbX"/>
@@ -116,8 +116,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rangliste" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ih-fh-A0g">
-                                <rect key="frame" x="99.5" y="27" width="121.5" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaderboard" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ih-fh-A0g">
+                                <rect key="frame" x="78" y="27" width="165.5" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="9qj-aY-SMF"/>
                                 </constraints>
@@ -135,8 +135,8 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="-1"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rang" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmP-sM-T4e">
-                                <rect key="frame" x="10" y="77" width="41.5" height="21.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmP-sM-T4e">
+                                <rect key="frame" x="10" y="77" width="40.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -162,7 +162,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="rang" text="Rang" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBb-by-moC">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="rang" text="Rank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBb-by-moC">
                                                             <rect key="frame" x="0.0" y="-2" width="50" height="43"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="o58-8n-hhN"/>
@@ -182,7 +182,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="points" text="Punkte" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Duy-qn-EXP">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="points" text="Score" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Duy-qn-EXP">
                                                             <rect key="frame" x="228" y="-2" width="63" height="43"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="63" id="5cs-Fe-g1W"/>
@@ -238,8 +238,8 @@
                                     <action selector="backButtonPressed:" destination="XOk-7p-D3l" eventType="touchUpInside" id="xuF-di-FDv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Punkte" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3d-9c-TJR">
-                                <rect key="frame" x="248" y="77" width="56" height="21.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3d-9c-TJR">
+                                <rect key="frame" x="257.5" y="77" width="46.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -415,8 +415,8 @@
                                 <color key="progressTintColor" red="0.070588235294117646" green="0.57647058823529407" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="trackTintColor" red="1" green="0.93799828119999995" blue="0.96487716680000002" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Punktezahl" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gH-ta-eZg">
-                                <rect key="frame" x="164" y="17" width="85" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gH-ta-eZg">
+                                <rect key="frame" x="164" y="17" width="85" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="zd1-RY-sCh"/>
                                 </constraints>

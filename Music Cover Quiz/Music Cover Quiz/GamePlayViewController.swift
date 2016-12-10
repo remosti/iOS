@@ -181,11 +181,11 @@ class GamePlayViewController: UIViewController {
 
     @IBAction func homeButtonPressed(_ sender: UIButton) {
         if playRound != 0 {
-            let ac = UIAlertController(title: "Music Cover Quiz", message: NSLocalizedString("Möchten Sie das aktuelle Spiel wirklich abbrechen?", comment: "CancelGame: Frage"), preferredStyle: .alert)
+            let ac = UIAlertController(title: "Music Cover Quiz", message: NSLocalizedString("Are you sure you want to cancel the current game?", comment: "CancelGame: Question"), preferredStyle: .alert)
             let okAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("OK", comment: "CancelGame: OK"), style: .default) { action -> Void in
                 self.dismiss(animated: true, completion: nil)
             }
-            ac.addAction(UIAlertAction(title: NSLocalizedString("Zurück", comment: "CancelGame: Zurück"), style: .default))
+            ac.addAction(UIAlertAction(title: NSLocalizedString("Back", comment: "CancelGame: Back"), style: .default))
             ac.addAction(okAction)
             present(ac, animated: true)
         } else {
@@ -214,18 +214,18 @@ class GamePlayViewController: UIViewController {
 
         if playRound == 5 {
             var inputTextField: UITextField?
-            let congratulation1 = NSLocalizedString("Gratulation, Sie haben ", comment: "UsernamePrompt: Congratulation 1")
-            let congratulation2 = NSLocalizedString(" Punkte erspielt!", comment: "UsernamePrompt: Congratulation 2")
+            let congratulation1 = NSLocalizedString("Congratulations, you got ", comment: "UsernamePrompt: Congratulation 1")
+            let congratulation2 = NSLocalizedString(" points!", comment: "UsernamePrompt: Congratulation 2")
             
             let usernamePrompt = UIAlertController(title: "Music Cover Quiz", message: congratulation1 + String(score) + congratulation2, preferredStyle: UIAlertControllerStyle.alert)
-            usernamePrompt.addAction(UIAlertAction(title: NSLocalizedString("Abbrechen", comment: "UsernamePrompt: Abbrechen"), style: UIAlertActionStyle.default, handler: nil))
+            usernamePrompt.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "UsernamePrompt: Cancel"), style: UIAlertActionStyle.default, handler: nil))
             usernamePrompt.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "UsernamePrompt: OK"), style: .default, handler: { (action) -> Void in
                 // score und Spielername speichern!
                 let username = (inputTextField?.text)!
                 print("\(username): \(self.score)")
             }))
             usernamePrompt.addTextField(configurationHandler: {(textField: UITextField!) in
-                textField.placeholder = NSLocalizedString("Spielernamen", comment: "UsernamePrompt: Username")
+                textField.placeholder = NSLocalizedString("Username", comment: "UsernamePrompt: Username")
                 inputTextField = textField
             })
             present(usernamePrompt, animated: true, completion: nil)

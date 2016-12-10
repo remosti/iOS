@@ -1,0 +1,25 @@
+/* UsernamePrompt: Congratulation 2 */
+" points!" = " Punkte erspielt!";
+
+/* CancelGame: Question */
+"Are you sure you want to cancel the current game?" = "Möchten Sie das aktuelle Spiel wirklich abbrechen?";
+
+/* CancelGame: Back */
+"Back" = "Zurück";
+
+/* UsernamePrompt: Cancel */
+"Cancel" = "Abbrechen";
+
+/* UsernamePrompt: Congratulation 1 */
+"Congratulations, you got " = "Gratulation, Sie haben ";
+
+/* AlertController: Data loading */
+"Data is loading..." = "Daten werden geladen...";
+
+/* CancelGame: OK
+   UsernamePrompt: OK */
+"OK" = "OK";
+
+/* UsernamePrompt: Username */
+"Username" = "Spielernamen";
+

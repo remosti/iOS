@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     var quizData: [QuizDataItem]?
 
-    let alert = UIAlertController(title: nil, message: NSLocalizedString("Daten werden geladen...", comment: "AlertController: Daten"), preferredStyle: .alert)
+    let alert = UIAlertController(title: nil, message: NSLocalizedString("Data is loading...", comment: "AlertController: Data loading"), preferredStyle: .alert)
     
     var updated: String = ""
     var now: String = ""

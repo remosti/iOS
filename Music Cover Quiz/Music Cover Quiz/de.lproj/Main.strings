@@ -1,0 +1,66 @@
+/* Class = "UILabel"; text = "Score"; ObjectID = "2gH-ta-eZg"; */
+"2gH-ta-eZg.text" = "Punktezahl";
+
+/* Class = "UIButton"; normalTitle = "Quiz"; ObjectID = "5Js-kJ-Zbr"; */
+"5Js-kJ-Zbr.normalTitle" = "Spiel";
+
+/* Class = "UILabel"; text = "Leaderboard"; ObjectID = "6Ih-fh-A0g"; */
+"6Ih-fh-A0g.text" = "Rangliste";
+
+/* Class = "UILabel"; text = "+10"; ObjectID = "6eK-vP-kv7"; */
+"6eK-vP-kv7.text" = "+10";
+
+/* Class = "UILabel"; text = "© Valentin Schuler & Remo Stirnimann"; ObjectID = "9mD-z5-CyH"; */
+"9mD-z5-CyH.text" = "© Valentin Schuler & Remo Stirnimann";
+
+/* Class = "UIViewController"; title = "MainControl"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "MainControl";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "DL0-ab-sf0"; */
+"DL0-ab-sf0.text" = "Name";
+
+/* Class = "UILabel"; text = "Score"; ObjectID = "Duy-qn-EXP"; */
+"Duy-qn-EXP.text" = "Punkte";
+
+/* Class = "UILabel"; text = "Rank"; ObjectID = "GmP-sM-T4e"; */
+"GmP-sM-T4e.text" = "Rang";
+
+/* Class = "UILabel"; text = "+10"; ObjectID = "QuA-iw-A0Z"; */
+"QuA-iw-A0Z.text" = "+10";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "TuK-dj-BpJ"; */
+"TuK-dj-BpJ.text" = "Name";
+
+/* Class = "UILabel"; text = "1 / 5"; ObjectID = "Uwk-lp-rLT"; */
+"Uwk-lp-rLT.text" = "1 / 5";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "VGi-Uz-rzA"; */
+"VGi-Uz-rzA.text" = "0";
+
+/* Class = "UIViewController"; title = "Leaderboard"; ObjectID = "XOk-7p-D3l"; */
+"XOk-7p-D3l.title" = "Leaderboard";
+
+/* Class = "UIViewController"; title = "GameplayViewController"; ObjectID = "bQz-uZ-73Z"; */
+"bQz-uZ-73Z.title" = "GameplayViewController";
+
+/* Class = "UILabel"; text = "+10"; ObjectID = "gM9-Gf-G9q"; */
+"gM9-Gf-G9q.text" = "+10";
+
+/* Class = "UILabel"; text = "Rank"; ObjectID = "hBb-by-moC"; */
+"hBb-by-moC.text" = "Rang";
+
+/* Class = "UILabel"; text = "Score"; ObjectID = "k3d-9c-TJR"; */
+"k3d-9c-TJR.text" = "Punkte";
+
+/* Class = "UIButton"; normalTitle = "Swiss Music Charts"; ObjectID = "lAk-hS-d2C"; */
+"lAk-hS-d2C.normalTitle" = "Schweizer Musik Charts";
+
+/* Class = "UILabel"; text = "Music Cover Quiz"; ObjectID = "r5d-Kr-ht6"; */
+"r5d-Kr-ht6.text" = "Musik Cover Quiz";
+
+/* Class = "UIButton"; normalTitle = "Leaderboard"; ObjectID = "rHs-tk-msI"; */
+"rHs-tk-msI.normalTitle" = "Rangliste";
+
+/* Class = "UIButton"; normalTitle = " START "; ObjectID = "vfV-rS-d33"; */
+"vfV-rS-d33.normalTitle" = " START ";
+
