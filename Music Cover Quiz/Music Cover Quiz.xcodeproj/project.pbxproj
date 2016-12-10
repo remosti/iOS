@@ -14,6 +14,7 @@
 		842A67A21DECB1130036DAB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842A67A01DECB1130036DAB8 /* LaunchScreen.storyboard */; };
 		845EF8611DFB2FE400BAF68C /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EF8601DFB2FE400BAF68C /* LeaderboardViewController.swift */; };
 		84FE0DFF1DFB51BF00E76E3D /* LeaderBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE0DFE1DFB51BF00E76E3D /* LeaderBoardTableViewCell.swift */; };
+		A74A2BCA1DFBF85C0003B0ED /* FadeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A2BC91DFBF85C0003B0ED /* FadeExtension.swift */; };
 		A74A99C81DFAF991006399A6 /* ShuffleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A99C71DFAF991006399A6 /* ShuffleExtension.swift */; };
 		A74DAAC01DEF66E700620C99 /* CSwiftV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74DAABD1DEF66E700620C99 /* CSwiftV.swift */; };
 		A74DAAC11DEF66E700620C99 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A74DAABE1DEF66E700620C99 /* LICENSE */; };
@@ -44,6 +45,7 @@
 		842A67A31DECB1130036DAB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		845EF8601DFB2FE400BAF68C /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		84FE0DFE1DFB51BF00E76E3D /* LeaderBoardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardTableViewCell.swift; sourceTree = "<group>"; };
+		A74A2BC91DFBF85C0003B0ED /* FadeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeExtension.swift; sourceTree = "<group>"; };
 		A74A99C71DFAF991006399A6 /* ShuffleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShuffleExtension.swift; sourceTree = "<group>"; };
 		A74DAABD1DEF66E700620C99 /* CSwiftV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSwiftV.swift; sourceTree = "<group>"; };
 		A74DAABE1DEF66E700620C99 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				A7C823281DF0B9AB0038A3FC /* GamePlayViewController.swift */,
 				A74A99C71DFAF991006399A6 /* ShuffleExtension.swift */,
 				84FE0DFE1DFB51BF00E76E3D /* LeaderBoardTableViewCell.swift */,
+				A74A2BC91DFBF85C0003B0ED /* FadeExtension.swift */,
 			);
 			path = "Music Cover Quiz";
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				A74A99C81DFAF991006399A6 /* ShuffleExtension.swift in Sources */,
 				845EF8611DFB2FE400BAF68C /* LeaderboardViewController.swift in Sources */,
 				842A67981DECB1130036DAB8 /* AppDelegate.swift in Sources */,
+				A74A2BCA1DFBF85C0003B0ED /* FadeExtension.swift in Sources */,
 				A74DAAC71DEF677D00620C99 /* MusicChartsLoader.swift in Sources */,
 				84FE0DFF1DFB51BF00E76E3D /* LeaderBoardTableViewCell.swift in Sources */,
 				A7C823291DF0B9AB0038A3FC /* GamePlayViewController.swift in Sources */,
