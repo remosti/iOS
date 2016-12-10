@@ -307,7 +307,7 @@
                                     <constraint firstAttribute="height" constant="30" id="4Sd-Bl-BeE"/>
                                     <constraint firstAttribute="width" constant="70" id="Pk4-oi-idA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -331,7 +331,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Exs-3E-p1Q"/>
                                     <constraint firstAttribute="width" constant="70" id="gDJ-88-I5d"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -355,7 +355,7 @@
                                     <constraint firstAttribute="width" constant="72" id="Csb-cu-Wdi"/>
                                     <constraint firstAttribute="height" constant="30" id="sk7-PH-HfK"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

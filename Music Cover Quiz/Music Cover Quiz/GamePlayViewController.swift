@@ -143,29 +143,27 @@ class GamePlayViewController: UIViewController {
     }
    
     @IBAction func button1Pressed(_ sender: UIButton) {
-        evaluate(answer: correctAnswer == 0)
-        button1.tintColor = UIColor.black
-        button1.layer.backgroundColor = (correctAnswer == 0) ? UIColor.green.cgColor : UIColor.red.cgColor
-        disableButtons()
-        pointsButton1.fadeOut()
+        evaluate(button: sender, answer: correctAnswer == 0)
+        if correctAnswer == 0 {
+            pointsButton1.text = "+\(10 - counter)"
+            pointsButton1.fadeOut()
+        }
     }
     
     @IBAction func button2Pressed(_ sender: UIButton) {
-        showYoutubeButton()
-        evaluate(answer: correctAnswer == 1)
-        button2.tintColor = UIColor.black
-        button2.layer.backgroundColor = (correctAnswer == 1) ? UIColor.green.cgColor : UIColor.red.cgColor
-        disableButtons()
-        pointsButton2.fadeOut()
+        evaluate(button: sender, answer: correctAnswer == 1)
+        if correctAnswer == 1 {
+            pointsButton2.text = "+\(10 - counter)"
+            pointsButton2.fadeOut()
+        }
     }
     
     @IBAction func button3Pressed(_ sender: UIButton) {
-        showYoutubeButton()
-        evaluate(answer: correctAnswer == 2)
-        button3.tintColor = UIColor.black
-        button3.layer.backgroundColor = (correctAnswer == 2) ? UIColor.green.cgColor : UIColor.red.cgColor
-        disableButtons()
-        pointsButton3.fadeOut()
+        evaluate(button: sender, answer: correctAnswer == 2)
+        if correctAnswer == 2 && counter < 10 {
+            pointsButton3.text = "+\(10 - counter)"
+            pointsButton3.fadeOut()
+        }
     }
     
     @IBAction func youtubeButtonPressed(_ sender: UIButton) {
@@ -183,11 +181,11 @@ class GamePlayViewController: UIViewController {
 
     @IBAction func homeButtonPressed(_ sender: UIButton) {
         if playRound != 0 {
-            let ac = UIAlertController(title: "Music Cover Quiz", message: "Wollen Sie das aktuelle Spiel wirklich abbrechen?", preferredStyle: .alert)
-            let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
+            let ac = UIAlertController(title: "Music Cover Quiz", message: NSLocalizedString("Möchten Sie das aktuelle Spiel wirklich abbrechen?", comment: "CancelGame: Frage"), preferredStyle: .alert)
+            let okAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("OK", comment: "CancelGame: OK"), style: .default) { action -> Void in
                 self.dismiss(animated: true, completion: nil)
             }
-            ac.addAction(UIAlertAction(title: "Zurück", style: .default))
+            ac.addAction(UIAlertAction(title: NSLocalizedString("Zurück", comment: "CancelGame: Zurück"), style: .default))
             ac.addAction(okAction)
             present(ac, animated: true)
         } else {
@@ -199,11 +197,15 @@ class GamePlayViewController: UIViewController {
         setupNewGame()
     }
     
-    func evaluate(answer correct: Bool) {
+    func evaluate(button: UIButton, answer correct: Bool) {
         timer?.invalidate()
         timer = nil
         unblur()
         showYoutubeButton()
+        disableButtons()
+        
+        button.tintColor = UIColor.black
+        button.layer.backgroundColor = correct ? UIColor.green.cgColor : UIColor.red.cgColor
         
         if correct && counter <= 10 {
             score += (10 - counter)
@@ -212,15 +214,18 @@ class GamePlayViewController: UIViewController {
 
         if playRound == 5 {
             var inputTextField: UITextField?
-            let usernamePrompt = UIAlertController(title: "Music Cover Quiz", message: "Gratulation, Sie haben \(score) Punkte erspielt!", preferredStyle: UIAlertControllerStyle.alert)
-            usernamePrompt.addAction(UIAlertAction(title: "Abbrechen", style: UIAlertActionStyle.default, handler: nil))
-            usernamePrompt.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            let congratulation1 = NSLocalizedString("Gratulation, Sie haben ", comment: "UsernamePrompt: Congratulation 1")
+            let congratulation2 = NSLocalizedString(" Punkte erspielt!", comment: "UsernamePrompt: Congratulation 2")
+            
+            let usernamePrompt = UIAlertController(title: "Music Cover Quiz", message: congratulation1 + String(score) + congratulation2, preferredStyle: UIAlertControllerStyle.alert)
+            usernamePrompt.addAction(UIAlertAction(title: NSLocalizedString("Abbrechen", comment: "UsernamePrompt: Abbrechen"), style: UIAlertActionStyle.default, handler: nil))
+            usernamePrompt.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "UsernamePrompt: OK"), style: .default, handler: { (action) -> Void in
                 // score und Spielername speichern!
                 let username = (inputTextField?.text)!
                 print("\(username): \(self.score)")
             }))
             usernamePrompt.addTextField(configurationHandler: {(textField: UITextField!) in
-                textField.placeholder = "Spielername"
+                textField.placeholder = NSLocalizedString("Spielernamen", comment: "UsernamePrompt: Username")
                 inputTextField = textField
             })
             present(usernamePrompt, animated: true, completion: nil)
@@ -233,7 +238,6 @@ class GamePlayViewController: UIViewController {
     }
     
     func stepUnblur() {
-        print(counter)
         if counter <= 10 {
             counter += 1
             effectView.alpha = CGFloat(alpha[counter])
