@@ -70,11 +70,11 @@
                                 <size key="shadowOffset" width="1" height="-2"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© Valentin Schuler &amp; Remo Stirnimann" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mD-z5-CyH">
-                                <rect key="frame" x="25.5" y="538.5" width="269" height="21"/>
+                                <rect key="frame" x="10" y="541.5" width="300" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="269" id="9UE-SY-FbX"/>
+                                    <constraint firstAttribute="width" constant="300" id="9UE-SY-FbX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
