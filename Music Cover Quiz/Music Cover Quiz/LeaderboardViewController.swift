@@ -15,8 +15,7 @@ class LeaderboardViewController: UIViewController,UITableViewDelegate, UITableVi
     // MARK: Properties
     let FILENAME = "leaders.xml"
     var leaderBoard : [LeaderBoardEntry] = []
-    var playersName : String = ""
-    var playersScore : Int = -1
+    
     @IBOutlet weak var leaderBoardTable: UITableView!
     
     override func viewDidLoad() {
@@ -30,15 +29,6 @@ class LeaderboardViewController: UIViewController,UITableViewDelegate, UITableVi
         
         // Aktuelle Rangliste aus dem File-Store
         leaderBoard = loadLeaderBoard()
-        
-        // Prüfen, ob ein neuer Eintrag besteht. Wenn neuer Eintrag, zu Array hinzufügen und in File speichern
-        if(playersName != "" && playersScore > -1){
-            leaderBoard.append(LeaderBoardEntry(name: playersName, points: playersScore))
-            storeLeaderBoard()
-        }
-        
-        leaderBoard.append(LeaderBoardEntry(name: "dummy", points: Int(arc4random_uniform(50) + 1)))
-        storeLeaderBoard()
         
         leaderBoard = sortLeaderBoard(toSort: leaderBoard)
         
@@ -123,6 +113,12 @@ class LeaderboardViewController: UIViewController,UITableViewDelegate, UITableVi
     
     func sortLeaderBoard(toSort: [LeaderBoardEntry]) -> [LeaderBoardEntry]{
         return toSort.sorted{$0.points > $1.points}
+    }
+    
+    func saveNewPlayerScore(name: String, points: Int){
+        leaderBoard = loadLeaderBoard()
+        leaderBoard.append(LeaderBoardEntry(name: name, points: points))
+        storeLeaderBoard()
     }
     
 }

@@ -87,7 +87,7 @@ class MusicChartsViewController: UIViewController,UITableViewDelegate, UITableVi
             }
             return sortcharts(toSort: leader)
         } else {
-            return  [MusicChartsEntry(position: 0, artist: "", song: "")]
+            return  [MusicChartsEntry(position: -1, artist: "", song: "")]
         }
     }
     
@@ -96,7 +96,7 @@ class MusicChartsViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = chartsTable.dequeueReusableCell(withIdentifier: "chartsCell", for: indexPath) as! MusicChartsTableViewCell
+        let cell = chartsTable.dequeueReusableCell(withIdentifier: "MusicChartsCell", for: indexPath) as! MusicChartsTableViewCell
         
         if(charts[indexPath.row].position > -1) {
             cell.labelPosition?.text = String(indexPath.row + 1)
