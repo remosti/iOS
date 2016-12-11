@@ -225,6 +225,7 @@ class GamePlayViewController: UIViewController {
                 print("\(username): \(self.score)")
                 let leaderBoard = LeaderboardViewController()
                 leaderBoard.saveNewPlayerScore(name: username, points: self.score)
+                
             }))
             usernamePrompt.addTextField(configurationHandler: {(textField: UITextField!) in
                 textField.placeholder = NSLocalizedString("Username", comment: "UsernamePrompt: Username")
