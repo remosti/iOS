@@ -26,7 +26,6 @@ class LeaderboardViewController: UIViewController,UITableViewDelegate, UITableVi
         leaderBoardTable.delegate = self
         leaderBoardTable.dataSource = self
         
-        
         // Aktuelle Rangliste aus dem File-Store
         leaderBoard = loadLeaderBoard()
         
@@ -57,7 +56,6 @@ class LeaderboardViewController: UIViewController,UITableViewDelegate, UITableVi
             if(item.name != "" && item.points > 0){
                 leaders.append("\(item.name);\(item.points)")}
         }
-        
         (leaders as NSArray).write(to: filePath, atomically: true)
         print(filePath as NSURL)
     }
@@ -97,7 +95,6 @@ class LeaderboardViewController: UIViewController,UITableViewDelegate, UITableVi
             cell.labelName?.text = ""
             cell.labelPunkte?.text = ""
         }
-        
         return cell
     }
     
@@ -107,8 +104,6 @@ class LeaderboardViewController: UIViewController,UITableViewDelegate, UITableVi
         }else{
             return 10
         }
-        
-        
     }
     
     func sortLeaderBoard(toSort: [LeaderBoardEntry]) -> [LeaderBoardEntry]{
@@ -120,7 +115,6 @@ class LeaderboardViewController: UIViewController,UITableViewDelegate, UITableVi
         leaderBoard.append(LeaderBoardEntry(name: name, points: points))
         storeLeaderBoard()
     }
-    
 }
 
 // MARK: Structur
