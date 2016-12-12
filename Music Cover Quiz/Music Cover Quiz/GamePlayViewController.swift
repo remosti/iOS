@@ -62,21 +62,10 @@ class GamePlayViewController: UIViewController {
         coverImage.layer.borderColor = UIColor.white.cgColor
         coverImage.layer.borderWidth = 1
 
-        button1.layer.cornerRadius = 8
-        button1.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
-        button1.titleLabel?.textAlignment = NSTextAlignment.center
-        button1.titleLabel?.numberOfLines = 2
-        
-        button2.layer.cornerRadius = 8
-        button2.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
-        button2.titleLabel?.textAlignment = NSTextAlignment.center
-        button2.titleLabel?.numberOfLines = 2
-        
-        button3.layer.cornerRadius = 8
-        button3.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
-        button3.titleLabel?.textAlignment = NSTextAlignment.center
-        button3.titleLabel?.numberOfLines = 2
-        
+        initButtonStyle(button: button1)
+        initButtonStyle(button: button2)
+        initButtonStyle(button: button3)
+
         startButton.layer.cornerRadius = 8
 
         effectView.effect = UIBlurEffect(style: .light)
@@ -94,7 +83,7 @@ class GamePlayViewController: UIViewController {
         playRound = 1
         score = 0
         scoreLabel.text = String(score)
-        shuffledQuizDataIndex = Array(0...19).shuffled()
+        shuffledQuizDataIndex = Array(0...29).shuffled()
         setupNewData()
         resetGameplayView()
     }
@@ -125,17 +114,9 @@ class GamePlayViewController: UIViewController {
         hideYoutubeButton()
         hideStartButton()
         
-        button1.layer.backgroundColor = blue.cgColor
-        button2.layer.backgroundColor = blue.cgColor
-        button3.layer.backgroundColor = blue.cgColor
-        
-        button1.tintColor = UIColor.white
-        button2.tintColor = UIColor.white
-        button3.tintColor = UIColor.white
-        
-        button1.isEnabled = true
-        button2.isEnabled = true
-        button3.isEnabled = true
+        initButtonStyle(button: button1)
+        initButtonStyle(button: button2)
+        initButtonStyle(button: button3)
         
         pointsButton1.isHidden = true
         pointsButton2.isHidden = true
@@ -283,6 +264,17 @@ class GamePlayViewController: UIViewController {
     
     func hideStartButton() {
         startButton.isHidden = true
+    }
+    
+    func initButtonStyle(button: UIButton) {
+        button.layer.cornerRadius = 8
+        button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+        button.titleLabel?.textAlignment = NSTextAlignment.center
+        button.titleLabel?.numberOfLines = 2
+        
+        button.layer.backgroundColor = blue.cgColor
+        button.tintColor = UIColor.white
+        button.isEnabled = true
     }
     
     func disableButtons() {
