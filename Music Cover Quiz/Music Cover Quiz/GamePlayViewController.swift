@@ -94,7 +94,7 @@ class GamePlayViewController: UIViewController {
         playRound = 1
         score = 0
         scoreLabel.text = String(score)
-        shuffledQuizDataIndex = Array(0...19).shuffled()
+        shuffledQuizDataIndex = Array(0...29).shuffled()
         setupNewData()
         resetGameplayView()
     }
