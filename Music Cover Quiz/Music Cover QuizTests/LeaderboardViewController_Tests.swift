@@ -48,17 +48,22 @@ class LeaderboardViewController_Tests: XCTestCase {
     }
     
     func testSortLeaderboard(){
-        assert(true)
-        // TO BE IMPLEMENTED
+        let leader = [LeaderBoardEntry(name: "test", points: 3), LeaderBoardEntry(name: "test2", points: 5)]
+        let sorted = board.sortLeaderBoard(toSort: leader)
+        assert(sorted[0].points > sorted[1].points)
     }
     
-    func testLoadLeaderBoard(){
-        assert(true)
-        //TO BE IMPLEMENTED
-    }
-    
-    func testStoreLeaderBoard(){
-        assert(true)
-        //TO BE IMPLEMENTED
+    func testLoadStoreLeaderBoard(){
+        let sollLeaderBoard = [LeaderBoardEntry(name: "test", points: 3), LeaderBoardEntry(name: "test2", points: 5)]
+        board.leaderBoard = sollLeaderBoard
+        board.storeLeaderBoard()
+        
+        board.leaderBoard = []
+        board.leaderBoard = board.loadLeaderBoard()
+        
+        XCTAssertEqual(sollLeaderBoard[0].points, board.leaderBoard[1].points)
+        XCTAssertEqual(sollLeaderBoard[0].name, board.leaderBoard[1].name)
+        XCTAssertEqual(sollLeaderBoard[1].points, board.leaderBoard[0].points)
+        XCTAssertEqual(sollLeaderBoard[1].name, board.leaderBoard[0].name)
     }
 }
