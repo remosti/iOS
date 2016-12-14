@@ -22,6 +22,9 @@
 /* Class = "UILabel"; text = "Score"; ObjectID = "Duy-qn-EXP"; */
 "Duy-qn-EXP.text" = "Punkte";
 
+/* Class = "UILabel"; text = "Artist / Song"; ObjectID = "GBD-9W-iBc"; */
+"GBD-9W-iBc.text" = "Künstler / Lied";
+
 /* Class = "UILabel"; text = "Rank"; ObjectID = "GmP-sM-T4e"; */
 "GmP-sM-T4e.text" = "Rang";
 

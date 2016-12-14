@@ -18,13 +18,15 @@ func loadQuizDataFromFile() -> [QuizDataItem]? {
         let content = try String(contentsOf: fileUrl, encoding: String.Encoding.utf8)
         let csv = CSwiftV(with: content)
         for row in csv.rows {
-            let item = QuizDataItem(ranking: Int(row[1])!, band: row[2], song: row[3], cover: row[4], youtube: row[5])
-            quizData.append(item)
+            if Int(row[1])! < 31 {
+                let item = QuizDataItem(ranking: Int(row[1])!, band: row[2], song: row[3], cover: row[4], youtube: row[5])
+                quizData.append(item)
+            }
         }
     } catch {
         print("Could not load quiz data: \(error)")
     }
-    return quizData
+    return quizData.sorted { $0.ranking < $1.ranking }
 }
 
 func updateQuizData() -> Bool {
