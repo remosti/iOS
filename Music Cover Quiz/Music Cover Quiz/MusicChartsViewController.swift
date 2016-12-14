@@ -29,21 +29,18 @@ class MusicChartsViewController: UIViewController,UITableViewDelegate, UITableVi
         chartsTable.dataSource = self
 
         // Aktuelle Rangliste aus dem File-Store
-        charts = loadcharts()
+        charts = loadCharts()
         
         // Prüfen, ob ein neuer Eintrag besteht. Wenn neuer Eintrag, zu Array hinzufügen und in File speichern
         if(position > 0 && artistName != "" && songName != "") {
             charts.append(MusicChartsEntry(position: position, artist: artistName, song: songName))
-            storecharts()
+            storeCharts()
         }
         
         charts.append(MusicChartsEntry(position: 1, artist: "Artist", song: "Song"))
-        storecharts()
+        storeCharts()
         
-        charts = sortcharts(toSort: charts)
-        
-        print(charts.count)
-        // Do any additional setup after loading the view.
+        charts = sortCcharts(toSort: charts)
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,9 +52,9 @@ class MusicChartsViewController: UIViewController,UITableViewDelegate, UITableVi
     // MARK: FileHandling
     
     /**
-     * Speichern der aktuellen Rangliste ind den File-Store
+     * Speichern der aktuellen Charts ind den File-Store
      */
-    func storecharts(){
+    func storeCharts(){
         let appPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let filePath = appPath.appendingPathComponent(fileName)
         
@@ -74,18 +71,18 @@ class MusicChartsViewController: UIViewController,UITableViewDelegate, UITableVi
     /**
      * Lesen der aktuellen Charts aus dem File-Store
      */
-    func loadcharts() -> [MusicChartsEntry]{
+    func loadCharts() -> [MusicChartsEntry]{
         let appPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let filePath = appPath.appendingPathComponent(fileName)
         let read = NSArray(contentsOf: filePath)
         print(filePath as NSURL)
-        var leader : [MusicChartsEntry] = []
+        var chartsEntries : [MusicChartsEntry] = []
         if read != nil{
             for item in read!{
                 let element = (item as! NSString).components(separatedBy: ";")
-                leader.append(MusicChartsEntry(position: Int(element[0])!, artist: element[1], song: element[2]))
+                chartsEntries.append(MusicChartsEntry(position: Int(element[0])!, artist: element[1], song: element[2]))
             }
-            return sortcharts(toSort: leader)
+            return sortCharts(toSort: chartsEntries)
         } else {
             return  [MusicChartsEntry(position: -1, artist: "", song: "")]
         }
@@ -112,16 +109,11 @@ class MusicChartsViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(charts.count < 10){
-            return charts.count
-        }else{
-            return 10
-        }
-        
+        return charts.count
         
     }
     
-    func sortcharts(toSort: [MusicChartsEntry]) -> [MusicChartsEntry]{
+    func sortCharts(toSort: [MusicChartsEntry]) -> [MusicChartsEntry]{
         return toSort.sorted{$0.position > $1.position}
     }
     
@@ -135,4 +127,5 @@ struct MusicChartsEntry {
     var position: Int
     var artist: String
     var song: String
+    var image: UIImage
 }
