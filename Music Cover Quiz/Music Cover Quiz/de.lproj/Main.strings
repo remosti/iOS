@@ -46,6 +46,9 @@
 /* Class = "UIViewController"; title = "GameplayViewController"; ObjectID = "bQz-uZ-73Z"; */
 "bQz-uZ-73Z.title" = "GameplayViewController";
 
+/* Class = "UILabel"; text = "Swiss Music Charts"; ObjectID = "chh-5D-fOr"; */
+"chh-5D-fOr.text" = "Schweizer Hitparade";
+
 /* Class = "UILabel"; text = "+10"; ObjectID = "gM9-Gf-G9q"; */
 "gM9-Gf-G9q.text" = "+10";
 
@@ -56,7 +59,7 @@
 "k3d-9c-TJR.text" = "Punkte";
 
 /* Class = "UIButton"; normalTitle = "Swiss Music Charts"; ObjectID = "lAk-hS-d2C"; */
-"lAk-hS-d2C.normalTitle" = "Schweizer Musik Charts";
+"lAk-hS-d2C.normalTitle" = "Schweizer Hitparade";
 
 /* Class = "UILabel"; text = "Music Cover Quiz"; ObjectID = "r5d-Kr-ht6"; */
 "r5d-Kr-ht6.text" = "Musik Cover Quiz";
