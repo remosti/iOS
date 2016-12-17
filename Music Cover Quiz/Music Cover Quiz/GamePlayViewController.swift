@@ -201,9 +201,7 @@ class GamePlayViewController: UIViewController {
             let usernamePrompt = UIAlertController(title: "Music Cover Quiz", message: congratulation1 + String(score) + congratulation2, preferredStyle: UIAlertControllerStyle.alert)
             usernamePrompt.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "UsernamePrompt: Cancel"), style: UIAlertActionStyle.default, handler: nil))
             usernamePrompt.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "UsernamePrompt: OK"), style: .default, handler: { (action) -> Void in
-                // score und Spielername speichern!
                 let username = (inputTextField?.text)!
-                print("\(username): \(self.score)")
                 let leaderBoard = LeaderboardViewController()
                 leaderBoard.saveNewPlayerScore(name: username, points: self.score)
                 

@@ -82,7 +82,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rHs-tk-msI" firstAttribute="top" secondItem="5Js-kJ-Zbr" secondAttribute="bottom" constant="17" id="0qG-Qv-hkw"/>
                             <constraint firstItem="rHs-tk-msI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3Ir-cE-Xry"/>
@@ -479,7 +479,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9e2-RB-ypu" firstAttribute="top" secondItem="LFK-Pu-Vt2" secondAttribute="bottom" constant="50" id="0JJ-U7-Crb"/>
                             <constraint firstItem="lgn-xX-df5" firstAttribute="top" secondItem="LFK-Pu-Vt2" secondAttribute="bottom" constant="135" id="1Oz-zx-c3g"/>
@@ -553,9 +553,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Swiss Music Charts" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chh-5D-fOr">
-                                <rect key="frame" x="4.5" y="37" width="311" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swiss Music Charts" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chh-5D-fOr">
+                                <rect key="frame" x="0.0" y="37" width="321" height="35"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="321" id="bAJ-Qr-pIM"/>
                                     <constraint firstAttribute="height" constant="35" id="ftH-RS-bmI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
@@ -588,7 +589,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="300" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="LeaderBoardCell" tableViewCell="NiZ-aw-dfg" id="ILB-zs-Kiq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="artist" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V88-Vq-U7q">
@@ -615,8 +616,8 @@
                                                             <rect key="frame" x="1" y="1" width="43" height="43"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="position" text="00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uG6-7V-z7g">
-                                                            <rect key="frame" x="260" y="0.0" width="30" height="43"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="position" text="00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uG6-7V-z7g">
+                                                            <rect key="frame" x="263" y="0.0" width="30" height="43"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="8ud-oW-MhY"/>
                                                                 <constraint firstAttribute="height" constant="43" id="Xbu-9Q-7Qb"/>
@@ -706,7 +707,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdf-tS-hU2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="155.625" y="925.35211267605632"/>
+            <point key="canvasLocation" x="155" y="925"/>
         </scene>
     </scenes>
     <resources>
